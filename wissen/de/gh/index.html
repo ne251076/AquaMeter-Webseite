@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Gesamthärte (GH) im Aquarium: Idealbereich, Ursachen &amp; Maßnahmen | AquaMeter</title>
+<meta name="description" content="Gesamthärte (GH) im Aquarium einfach erklärt: welcher Bereich für welche Fische und Garnelen ideal ist, wie sie sich von KH unterscheidet und was bei Abweichungen zu tun ist.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/gh/">
 
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Gesamthärte (GH) im Aquarium: Idealbereich, Ursachen & Maßnahmen">
+<meta property="og:description" content="Welcher Bereich für welche Fische und Garnelen ideal ist, wie sich GH von KH unterscheidet und was bei Abweichungen zu tun ist.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/gh/">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gesamthärte (GH) im Aquarium: Idealbereich, Ursachen & Maßnahmen">
+<meta name="twitter:description" content="Welcher Bereich für welche Fische und Garnelen ideal ist und wie sich GH von KH unterscheidet.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gesamthärte (GH) im Aquarium",
+  "description": "Gesamthärte (GH) im Aquarium einfach erklärt: welcher Bereich für welche Fische und Garnelen ideal ist, wie sie sich von KH unterscheidet und was bei Abweichungen zu tun ist.",
+  "url": "https://www.aquameter.info/wissen/de/gh/",
+  "inLanguage": "de",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Wissensdatenbank – Wasserwerte im Aquarium",
+    "url": "https://www.aquameter.info/wissen/de/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Gesamthärte (GH) im Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Gesamthärte (GH)</div>
+
+  <h1>Gesamthärte (GH) im Aquarium</h1>
+  <p class="subtitle">Die Gesamthärte gibt an, wie viel Calcium und Magnesium im Wasser gelöst sind – entscheidend für Osmoregulation, Häutung bei Garnelen und Nährstoffversorgung von Pflanzen. Hier erfährst du, welcher Bereich ideal ist und wie sich GH von KH unterscheidet.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 76 26" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M76 26 A96 96 0 0 1 110 14" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M110 14 A96 96 0 0 1 148 22" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M148 22 A96 96 0 0 1 178 46" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M178 46 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="128" y2="34" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typischer Idealbereich</div>
+      <div class="value">6 – 12<span>°dGH</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>6–12 °dGH ideal</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>2–6 / 12–18 °dGH grenzwertig</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&lt;2 °dGH riskant</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>Was die Gesamthärte eigentlich zeigt</h2>
+      <p>Die Gesamthärte (GH) misst vor allem den Gehalt an Calcium- und Magnesium-Ionen im Wasser. Beide Mineralien sind für Fische essenziell für die Osmoregulation (den Salz-Wasser-Haushalt im Körper) und für Garnelen und Schnecken zusätzlich entscheidend für den Aufbau von Panzer bzw. Schale.</p>
+      <p><strong>GH und KH werden häufig verwechselt, messen aber unterschiedliche Dinge:</strong> KH misst die Pufferkapazität (Hydrogenkarbonat), GH misst die Gesamtmenge an Calcium und Magnesium. Ein Wasser kann durchaus eine hohe GH bei niedriger KH haben oder umgekehrt – beide Werte lohnt es sich, getrennt zu betrachten.</p>
+    </section>
+
+    <section>
+      <h2>Idealbereich je nach Besatz</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Besatz</th><th>GH-Bereich</th><th>Hinweis</th></tr>
+          <tr><td>Allgemeines Gesellschaftsbecken</td><td>6 – 12 °dGH</td><td><span class="tag ok"><span class="dot"></span>Standardbereich</span></td></tr>
+          <tr><td>Diskus, Tetras, Rasboras (Weichwasser)</td><td>2 – 6 °dGH</td><td>weiches Wasser gewünscht</td></tr>
+          <tr><td>Malawi-/Tanganjikasee-Buntbarsche, Lebendgebärende</td><td>12 – 20 °dGH</td><td>hartes Wasser gewünscht</td></tr>
+          <tr><td>Neocaridina-Garnelen</td><td>6 – 8 °dGH</td><td>zu niedrige GH erschwert die Häutung</td></tr>
+          <tr><td>Caridina-Garnelen (z. B. Bienengarnelen)</td><td>4 – 6 °dGH</td><td>deutlich weicheres Wasser als Neocaridina</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Warum die GH schwankt</h2>
+      <p>Die häufigsten Ursachen für Veränderungen:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Verdunstung:</strong> Wenn Wasser verdunstet, bleiben die Mineralien zurück – die GH steigt dadurch schleichend an, wenn nur mit Leitungswasser statt mit Osmosewasser nachgefüllt wird.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Wechselndes Leitungswasser:</strong> Die GH des Leitungswassers kann sich je nach Wasserwerk saisonal leicht verändern.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Mineralische Dekoration:</strong> Kalkhaltige Steine oder Korallenbruch geben kontinuierlich Mineralien ab und erhöhen die GH langsam.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Aufhärter-Präparate:</strong> Gezielt zugesetzte GH-Booster für Garnelen oder Hartwasserfische erhöhen den Wert bewusst.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Was tun bei Abweichung?</h2>
+      <p>Bei <strong>zu niedriger GH</strong>: Spezielle GH-Aufhärter-Präparate (Calcium-/Magnesium-Mineralsalze) direkt ins Wasser geben, dosiert nach Herstellerangabe. Wichtig besonders bei Garnelen, da eine zu niedrige GH zu Problemen beim Häuten führen kann.</p>
+      <p>Bei <strong>zu hoher GH</strong>: Beimischung von Osmose- oder destilliertem Wasser beim Wasserwechsel senkt die GH schrittweise. Beim Nachfüllen verdunsteten Wassers ausschließlich Osmosewasser statt Leitungswasser verwenden, um ein schleichendes Ansteigen zu vermeiden.</p>
+      <div class="callout">
+        <strong>Wichtig für Garnelenhalter:</strong> Eine zu niedrige GH ist eine der häufigsten, aber am wenigsten offensichtlichen Ursachen für Häutungsprobleme und plötzliche Todesfälle bei Garnelen – bei ungeklärten Verlusten lohnt sich immer ein Blick auf diesen Wert.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>GH nie wieder aus dem Blick verlieren</h3>
+      <p>AquaMeter trackt deinen GH-Verlauf automatisch und bewertet ihn passend zu deinem Besatz.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+
+  <div class="related">
+    <h2>Verwandte Werte</h2>
+    <div class="related-links">
+      <a href="/wissen/de/kh/">Karbonathärte (KH)</a>
+      <a href="/wissen/de/ph-wert/">pH-Wert</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/gh/</footer>
+
+</body>
+</html>
