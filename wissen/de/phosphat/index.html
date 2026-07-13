@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Phosphat im Aquarium: Idealbereich, Ursachen &amp; Maßnahmen | AquaMeter</title>
+<meta name="description" content="Phosphat (PO4) im Aquarium einfach erklärt: warum es der häufigste Auslöser für Algenprobleme ist, welcher Bereich ideal ist und wie du die Quelle findest.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/phosphat/">
 
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Phosphat im Aquarium: Idealbereich, Ursachen & Maßnahmen">
+<meta property="og:description" content="Warum Phosphat der häufigste Auslöser für Algenprobleme ist und wie du die Quelle findest.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/phosphat/">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Phosphat im Aquarium: Idealbereich, Ursachen & Maßnahmen">
+<meta name="twitter:description" content="Warum Phosphat der häufigste Auslöser für Algenprobleme ist.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Phosphat im Aquarium",
+  "description": "Phosphat (PO4) im Aquarium einfach erklärt: warum es der häufigste Auslöser für Algenprobleme ist, welcher Bereich ideal ist und wie du die Quelle findest.",
+  "url": "https://www.aquameter.info/wissen/de/phosphat/",
+  "inLanguage": "de",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Wissensdatenbank – Wasserwerte im Aquarium",
+    "url": "https://www.aquameter.info/wissen/de/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Phosphat im Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Phosphat</div>
+
+  <h1>Phosphat im Aquarium</h1>
+  <p class="subtitle">Phosphat (PO4³⁻) ist für sich genommen nicht giftig für Fische – aber der wahrscheinlich häufigste Nährstoff hinter hartnäckigen Algenproblemen. Hier erfährst du, welcher Bereich ideal ist und wie du die Quelle findest.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 62 35" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M62 35 A96 96 0 0 1 110 22" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M110 22 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="27" y2="70" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typischer Idealbereich</div>
+      <div class="value">&lt; 0,5<span>mg/l</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>&lt; 0,5 mg/l ideal</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>0,5–2 mg/l grenzwertig</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&gt; 2 mg/l Algenrisiko</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>Warum Phosphat so oft übersehen wird</h2>
+      <p>Phosphat gehört zu den Nährstoffen, die weder Fische akut gefährden noch typischerweise im Standard-Testset enthalten sind – deshalb wird es oft erst getestet, wenn bereits ein hartnäckiges Algenproblem besteht. Zusammen mit Nitrat ist Phosphat der wichtigste Nährstoff für Algenwachstum, insbesondere für Pinselalgen und Blaualgen.</p>
+      <p>Anders als bei Ammonium oder Nitrit ist der Zielwert nicht immer 0 mg/l: In stark bepflanzten Becken dient Phosphat als Pflanzendünger und ein moderater Wert ist sogar gewünscht. In unbepflanzten oder schwach bepflanzten Becken sollte er dagegen möglichst niedrig gehalten werden.</p>
+    </section>
+
+    <section>
+      <h2>Idealbereich je nach Beckentyp</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Beckentyp</th><th>Phosphat-Bereich</th><th>Hinweis</th></tr>
+          <tr><td>Allgemeines Gesellschaftsbecken</td><td>&lt; 0,5 mg/l</td><td><span class="tag ok"><span class="dot"></span>Standardbereich</span></td></tr>
+          <tr><td>Pflanzenbecken mit CO₂-Düngung</td><td>0,5 – 1,5 mg/l</td><td>dient hier als Nährstoff für Pflanzen</td></tr>
+          <tr><td>Schwach oder unbepflanztes Becken</td><td>&lt; 0,3 mg/l</td><td>höheres Algenrisiko ohne Pflanzenaufnahme</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Warum der Wert ansteigt</h2>
+      <p>Die häufigsten Quellen:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Überfütterung:</strong> Fischfutter enthält oft relativ viel Phosphat – nicht gefressene Reste erhöhen den Wert direkt.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Zu seltene Wasserwechsel:</strong> Ohne regelmäßigen Austausch reichert sich Phosphat wie Nitrat kontinuierlich an.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Leitungswasser als Quelle:</strong> Manche Wasserwerke setzen phosphathaltige Korrosionsschutzmittel ein – ein Blick in den Trinkwasserbericht der Gemeinde kann Klarheit bringen.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Zersetzendes organisches Material:</strong> Mulm, abgestorbene Pflanzenreste und Futterreste im Bodengrund setzen beim Verrotten zusätzliches Phosphat frei.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Was tun bei erhöhtem Wert?</h2>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Fütterungsmenge reduzieren:</strong> Nur so viel füttern, wie in wenigen Minuten gefressen wird.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Regelmäßiger Wasserwechsel:</strong> Die einfachste Methode, Phosphat wie Nitrat dauerhaft niedrig zu halten.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Phosphatabsorbierende Filtermedien:</strong> Spezielle Granulate (z. B. auf Eisenoxid-Basis) binden Phosphat gezielt und lassen sich einfach in den Filter einsetzen.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Mehr lebende Pflanzen:</strong> Schnellwachsende Pflanzen nehmen Phosphat als Nährstoff auf und reduzieren so das Algenrisiko.</p></div>
+      </div>
+      <div class="callout">
+        <strong>Gut zu wissen:</strong> Algen entstehen fast nie durch Phosphat allein, sondern durch das Zusammenspiel mit Licht und Nitrat. Ein hoher Phosphatwert ist oft nur ein Symptom – die eigentliche Ursache liegt meist bei Fütterung oder Wasserwechsel-Rhythmus.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Phosphat nie wieder aus dem Blick verlieren</h3>
+      <p>AquaMeter trackt deinen Phosphat-Verlauf automatisch und hilft dir, Algenprobleme frühzeitig zu erkennen.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+
+  <div class="related">
+    <h2>Verwandte Werte</h2>
+    <div class="related-links">
+      <a href="/wissen/de/nitrat/">Nitrat (NO3)</a>
+      <span>Eisen (Fe)</span>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/phosphat/</footer>
+
+</body>
+</html>
