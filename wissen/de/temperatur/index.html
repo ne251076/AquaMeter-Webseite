@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wassertemperatur im Aquarium: Idealwerte, Ursachen &amp; Maßnahmen | AquaMeter</title>
+<meta name="description" content="Wassertemperatur im Aquarium einfach erklärt: welche Temperatur für welche Fische ideal ist, warum sie schwankt und wie du sie stabil hältst.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/temperatur/">
 
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Wassertemperatur im Aquarium: Idealwerte, Ursachen & Maßnahmen">
+<meta property="og:description" content="Welche Temperatur für welche Fische ideal ist, warum sie schwankt und wie du sie stabil hältst.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/temperatur/">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wassertemperatur im Aquarium: Idealwerte, Ursachen & Maßnahmen">
+<meta name="twitter:description" content="Welche Temperatur für welche Fische ideal ist und wie du sie stabil hältst.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Die Wassertemperatur im Aquarium",
+  "description": "Wassertemperatur im Aquarium einfach erklärt: welche Temperatur für welche Fische ideal ist, warum sie schwankt und wie du sie stabil hältst.",
+  "url": "https://www.aquameter.info/wissen/de/temperatur/",
+  "inLanguage": "de",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Wissensdatenbank – Wasserwerte im Aquarium",
+    "url": "https://www.aquameter.info/wissen/de/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Wassertemperatur im Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Temperatur</div>
+
+  <h1>Die Wassertemperatur im Aquarium</h1>
+  <p class="subtitle">Die Temperatur beeinflusst Stoffwechsel, Aktivität und Sauerstoffbedarf deiner Fische direkt – und ist einer der wenigen Werte, die sich mit einfacher Technik zuverlässig konstant halten lassen. Hier erfährst du, welcher Bereich ideal ist, warum sie schwankt und wie du sie stabil hältst.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 76 26" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M76 26 A96 96 0 0 1 118 15" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M118 15 A96 96 0 0 1 152 24" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M152 24 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="122" y2="30" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typischer Idealbereich</div>
+      <div class="value">24 – 26<span>°C</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>24–26 °C ideal (Gesellschaftsbecken)</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>22–24 / 26–28 °C grenzwertig</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&lt;20 °C / &gt;30 °C kritisch</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>Warum die Temperatur so wichtig ist</h2>
+      <p>Fische sind wechselwarm – ihre Körpertemperatur und damit ihr gesamter Stoffwechsel hängt direkt von der Wassertemperatur ab. Zu warmes Wasser beschleunigt den Stoffwechsel und senkt gleichzeitig den gelösten Sauerstoffgehalt, zu kaltes Wasser verlangsamt Verdauung und Immunsystem. Beides erhöht Stress und Krankheitsanfälligkeit.</p>
+      <p>Anders als bei chemischen Werten wie pH oder KH lässt sich die Temperatur mit einem simplen, günstigen Heizstab sehr zuverlässig konstant halten – <strong>Schwankungen sind hier meist ein Technik- oder Standortproblem, kein Wasserchemie-Problem.</strong></p>
+    </section>
+
+    <section>
+      <h2>Idealbereich je nach Besatz</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Besatz</th><th>Temperatur</th><th>Hinweis</th></tr>
+          <tr><td>Allgemeines Gesellschaftsbecken</td><td>24 – 26 °C</td><td><span class="tag ok"><span class="dot"></span>Standardbereich</span></td></tr>
+          <tr><td>Diskus</td><td>28 – 30 °C</td><td>deutlich wärmer als üblich</td></tr>
+          <tr><td>Betta (Kampffisch)</td><td>24 – 27 °C</td><td>verträgt kurzfristig etwas mehr Spielraum</td></tr>
+          <tr><td>Goldfisch / Kaltwasserfische</td><td>18 – 22 °C</td><td>kein Heizstab nötig, oft sogar ungeeignet</td></tr>
+          <tr><td>Garnelen (Neocaridina)</td><td>20 – 24 °C</td><td>zu warm verkürzt die Lebensdauer spürbar</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Warum die Temperatur schwankt</h2>
+      <p>Die häufigsten Ursachen für Temperaturschwankungen:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Defekter oder falsch eingestellter Heizstab:</strong> Die häufigste Ursache überhaupt – Thermostate können mit der Zeit ungenau werden oder ganz ausfallen.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Standort am Fenster oder Heizkörper:</strong> Direkte Sonneneinstrahlung oder Nähe zur Zimmerheizung führt zu Schwankungen, die der Heizstab nicht ausgleichen kann.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Zu kaltes Wechselwasser:</strong> Wird beim Wasserwechsel deutlich kälteres Leitungswasser eingefüllt, sinkt die Temperatur kurzfristig spürbar ab.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Fehlende Abdeckung:</strong> Ohne Deckglas oder Abdeckung verdunstet mehr Wasser, was zusätzlich kühlend wirkt – besonders im Winter bemerkbar.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Was tun bei Abweichung?</h2>
+      <p>Bei <strong>zu niedriger Temperatur</strong>: Heizstab-Funktion prüfen (oft reicht ein Blick, ob sich die Kontrollleuchte beim Heizen einschaltet) und Thermostat neu justieren. Bei größeren Becken oder empfindlichem Besatz lohnt sich ein zweiter, kleinerer Heizstab als Backup.</p>
+      <p>Bei <strong>zu hoher Temperatur</strong> (häufig im Sommer): Zusätzliche Belüftung über einen Ausströmerstein erhöht den Sauerstoffgehalt, der bei Wärme sinkt. Der Deckel kann einen Spalt geöffnet werden, um Verdunstungskühlung zuzulassen. In Extremfällen helfen Kühlventilatoren am Beckenrand.</p>
+      <div class="callout">
+        <strong>Wichtig:</strong> Beim Wasserwechsel das neue Wasser immer erst auf Beckentemperatur bringen oder zumindest angleichen. Ein Temperatursprung von mehr als 2–3 °C auf einmal ist für viele Fische deutlich belastender als eine dauerhaft leicht abweichende, aber stabile Temperatur.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Temperatur nie wieder aus dem Blick verlieren</h3>
+      <p>AquaMeter trackt deinen Temperaturverlauf automatisch, bewertet ihn per Ampel und zeigt dir Trends über Zeit.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+
+  <div class="related">
+    <h2>Verwandte Werte</h2>
+    <div class="related-links">
+      <a href="/wissen/de/ph-wert/">pH-Wert</a>
+      <span>Sauerstoff (O₂)</span>
+      <span>CO₂</span>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/temperatur/</footer>
+
+</body>
+</html>
