@@ -1,1 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Wasserwerte-Berater: Werte eintragen &amp; sofort auswerten | AquaMeter</title>
+<meta name="description" content="Trage deine gemessenen Aquarium-Wasserwerte ein und erhalte sofort eine Einschätzung – kostenlos, ohne Anmeldung, direkt im Browser.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/berater/">
 
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Wasserwerte-Berater: Werte eintragen & sofort auswerten">
+<meta property="og:description" content="Trage deine gemessenen Aquarium-Wasserwerte ein und erhalte sofort eine Einschätzung.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/berater/">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wasserwerte-Berater: Werte eintragen & sofort auswerten">
+<meta name="twitter:description" content="Trage deine gemessenen Aquarium-Wasserwerte ein und erhalte sofort eine Einschätzung.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Wasserwerte-Berater",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/de/berater/",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Wissensdatenbank – Wasserwerte im Aquarium",
+    "url": "https://www.aquameter.info/wissen/de/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;text-decoration:none;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;text-decoration:none;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a{text-decoration:none;}
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin-bottom:40px;
+  }
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+
+  form{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    margin-bottom:32px;
+  }
+  .form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
+    gap:18px;
+    margin-bottom:28px;
+  }
+  .field label{
+    display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;
+    font-weight:500;
+  }
+  .field .input-wrap{
+    position:relative;
+  }
+  .field input{
+    width:100%;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:11px 44px 11px 14px;
+    color:var(--text-hi);
+    font-size:15px;
+    font-family:'IBM Plex Mono',monospace;
+    transition:border-color .15s;
+  }
+  .field input:focus{
+    outline:none;
+    border-color:var(--brand-blue);
+  }
+  .field input::placeholder{color:var(--text-low);}
+  .field .unit{
+    position:absolute;right:14px;top:50%;transform:translateY(-50%);
+    font-size:12px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;
+    pointer-events:none;
+  }
+
+  .form-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--brand-blue);color:#06131d;font-weight:600;font-size:15px;
+    padding:13px 28px;border-radius:10px;border:none;cursor:pointer;
+    font-family:'Inter',sans-serif;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(61,184,232,0.3);}
+  .btn-reset{
+    background:none;border:1px solid var(--line);color:var(--text-mid);
+    font-size:14px;padding:12px 20px;border-radius:10px;cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .btn-reset:hover{border-color:var(--text-mid);color:var(--text-hi);}
+  .form-hint{font-size:13px;color:var(--text-low);}
+
+  #results{display:none;}
+  #results.visible{display:block;}
+
+  .alert-banner{
+    background:linear-gradient(135deg, rgba(232,93,74,0.16), rgba(232,93,74,0.06));
+    border:1px solid rgba(232,93,74,0.4);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    margin-bottom:24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .alert-banner .icon{font-size:24px;line-height:1;flex-shrink:0;}
+  .alert-banner h3{font-family:'Space Grotesk',sans-serif;font-size:17px;margin:0 0 6px;color:var(--bad);}
+  .alert-banner p{margin:0;font-size:14.5px;color:var(--text-mid);line-height:1.6;}
+  .alert-banner a{color:var(--brand-blue);font-weight:600;}
+
+  .summary-line{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--text-low);
+    margin-bottom:20px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .summary-line strong{color:var(--text-hi);}
+
+  .result-item{
+    display:flex;
+    gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 20px;
+    margin-bottom:12px;
+    align-items:flex-start;
+  }
+  .result-item.ok{border-left:3px solid var(--ok);}
+  .result-item.warn{border-left:3px solid var(--warn);}
+  .result-item.bad{border-left:3px solid var(--bad);}
+
+  .result-dot{
+    width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0;
+  }
+  .result-item.ok .result-dot{background:var(--ok);}
+  .result-item.warn .result-dot{background:var(--warn);}
+  .result-item.bad .result-dot{background:var(--bad);}
+
+  .result-body{flex:1;}
+  .result-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:12px;margin-bottom:6px;flex-wrap:wrap;
+  }
+  .result-head h4{
+    font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:0;
+  }
+  .result-value{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-low);
+  }
+  .result-text{font-size:14px;color:var(--text-mid);line-height:1.6;margin:0 0 8px;}
+  .result-link{font-size:13px;color:var(--brand-blue);text-decoration:none;font-weight:500;}
+  .result-link:hover{text-decoration:underline;}
+
+  .empty-state{
+    text-align:center;padding:40px 20px;color:var(--text-low);font-size:14px;
+  }
+
+  .disclaimer{
+    margin-top:32px;
+    font-size:12.5px;
+    color:var(--text-low);
+    line-height:1.6;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:32px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;text-decoration:none;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+
+  @media (max-width:560px){
+    form{padding:22px;}
+    .result-head{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Wasserwerte-Berater</div>
+
+  <h1>Wasserwerte-Berater</h1>
+  <p class="subtitle">Trage deine gemessenen Werte ein – der Berater ordnet sie sofort ein und verlinkt zu den passenden Hintergrundartikeln. Du musst nicht alle Felder ausfüllen, nur das eintragen, was du gemessen hast.</p>
+  <div class="privacy-note"><span class="dot"></span> Läuft komplett in deinem Browser – nichts wird gespeichert oder übertragen</div>
+
+  <form id="berater-form">
+    <div class="form-grid" id="form-grid"></div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Werte auswerten</button>
+      <button type="button" class="btn-reset" id="reset-btn">Zurücksetzen</button>
+      <span class="form-hint">Leere Felder werden ignoriert</span>
+    </div>
+  </form>
+
+  <div id="results">
+    <div id="alert-container"></div>
+    <div class="summary-line" id="summary-line"></div>
+    <div id="result-list"></div>
+    <div class="disclaimer">
+      Dieser Berater ersetzt keine fachkundige Beratung und keine vollständige Diagnose. Er basiert auf allgemeinen Richtwerten für Gesellschaftsbecken – je nach Besatz (z. B. Diskus, Malawi-Buntbarsche, Garnelen) können andere Bereiche ideal sein. Ausführliche Erklärungen findest du in den verlinkten Artikeln.
+    </div>
+  </div>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Werte automatisch tracken statt manuell eintippen</h3>
+      <p>AquaMeter übernimmt diese Auswertung dauerhaft für dich – mit Verlauf, Trends und Erinnerungen.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/berater/</footer>
+
+<script>
+const PARAMS = [
+  {
+    id: 'ph', label: 'pH-Wert', unit: '', slug: 'ph-wert', title: 'pH-Wert', step: '0.1',
+    evaluate: v => {
+      if (v >= 6.5 && v <= 7.5) return { status: 'ok', text: 'Im typischen Idealbereich für ein Gesellschaftsbecken.' };
+      if ((v >= 6.0 && v < 6.5) || (v > 7.5 && v <= 8.0)) return { status: 'warn', text: 'Leicht außerhalb des Standardbereichs – je nach Besatz kann das normal sein.' };
+      return { status: 'bad', text: 'Deutlich außerhalb des Standardbereichs. Karbonathärte (KH) mitprüfen.' };
+    }
+  },
+  {
+    id: 'temp', label: 'Temperatur', unit: '°C', slug: 'temperatur', title: 'Temperatur', step: '0.5',
+    evaluate: v => {
+      if (v >= 24 && v <= 26) return { status: 'ok', text: 'Im typischen Idealbereich für ein Gesellschaftsbecken.' };
+      if ((v >= 22 && v < 24) || (v > 26 && v <= 28)) return { status: 'warn', text: 'Leicht außerhalb des Standardbereichs.' };
+      return { status: 'bad', text: 'Deutlich außerhalb des Standardbereichs – Heizstab und Standort prüfen.' };
+    }
+  },
+  {
+    id: 'kh', label: 'Karbonathärte (KH)', unit: '°dKH', slug: 'kh', title: 'Karbonathärte (KH)', step: '0.5',
+    evaluate: v => {
+      if (v >= 4 && v <= 8) return { status: 'ok', text: 'Im typischen Idealbereich.' };
+      if (v < 2) return { status: 'bad', text: 'Sehr niedrig – Risiko für einen plötzlichen pH-Absturz.' };
+      if ((v >= 2 && v < 4) || (v > 8 && v <= 12)) return { status: 'warn', text: 'Leicht außerhalb des Standardbereichs.' };
+      return { status: 'warn', text: 'Deutlich über dem Standardbereich – für Weichwasserfische eher ungeeignet.' };
+    }
+  },
+  {
+    id: 'gh', label: 'Gesamthärte (GH)', unit: '°dGH', slug: 'gh', title: 'Gesamthärte (GH)', step: '0.5',
+    evaluate: v => {
+      if (v >= 6 && v <= 12) return { status: 'ok', text: 'Im typischen Idealbereich.' };
+      if (v < 2) return { status: 'bad', text: 'Sehr niedrig – kann bei Garnelen Häutungsprobleme verursachen.' };
+      if ((v >= 2 && v < 6) || (v > 12 && v <= 18)) return { status: 'warn', text: 'Leicht außerhalb des Standardbereichs.' };
+      return { status: 'warn', text: 'Deutlich über dem Standardbereich.' };
+    }
+  },
+  {
+    id: 'nh4', label: 'Ammonium / Ammoniak', unit: 'mg/l', slug: 'ammonium', title: 'Ammonium & Ammoniak', step: '0.05',
+    evaluate: v => {
+      if (v <= 0) return { status: 'ok', text: 'Kein messbarer Wert – genau so soll es sein.' };
+      if (v < 0.25) return { status: 'warn', text: 'Schon dieser niedrige Wert ist ein Warnsignal. Ursache prüfen.' };
+      return { status: 'bad', text: 'Kritisch – sofort handeln, siehe Sofortmaßnahmen im Artikel.' };
+    }
+  },
+  {
+    id: 'no2', label: 'Nitrit', unit: 'mg/l', slug: 'nitrit', title: 'Nitrit', step: '0.05',
+    evaluate: v => {
+      if (v <= 0) return { status: 'ok', text: 'Kein messbarer Wert – genau so soll es sein.' };
+      if (v < 0.25) return { status: 'warn', text: 'Schon dieser niedrige Wert ist ein Warnsignal. Ursache prüfen.' };
+      return { status: 'bad', text: 'Kritisch – sofort handeln, siehe Sofortmaßnahmen im Artikel.' };
+    }
+  },
+  {
+    id: 'no3', label: 'Nitrat', unit: 'mg/l', slug: 'nitrat', title: 'Nitrat', step: '1',
+    evaluate: v => {
+      if (v < 25) return { status: 'ok', text: 'Im unbedenklichen Bereich.' };
+      if (v <= 50) return { status: 'warn', text: 'Erhöht – der nächste Wasserwechsel sollte bald erfolgen.' };
+      return { status: 'bad', text: 'Deutlich zu hoch – zeitnah Wasserwechsel durchführen.' };
+    }
+  },
+  {
+    id: 'o2', label: 'Sauerstoff', unit: 'mg/l', slug: 'sauerstoff', title: 'Sauerstoff', step: '0.5',
+    evaluate: v => {
+      if (v > 6) return { status: 'ok', text: 'Guter Sauerstoffgehalt.' };
+      if (v >= 4) return { status: 'warn', text: 'Etwas niedrig – mehr Oberflächenbewegung kann helfen.' };
+      return { status: 'bad', text: 'Kritisch niedrig – sofort zusätzlich belüften.' };
+    }
+  },
+  {
+    id: 'po4', label: 'Phosphat', unit: 'mg/l', slug: 'phosphat', title: 'Phosphat', step: '0.1',
+    evaluate: v => {
+      if (v < 0.5) return { status: 'ok', text: 'Im unbedenklichen Bereich.' };
+      if (v <= 2) return { status: 'warn', text: 'Erhöht – erhöhtes Algenrisiko.' };
+      return { status: 'bad', text: 'Deutlich zu hoch – Fütterung und Wasserwechsel-Rhythmus prüfen.' };
+    }
+  },
+  {
+    id: 'fe', label: 'Eisen', unit: 'mg/l', slug: 'eisen', title: 'Eisen', step: '0.05',
+    evaluate: v => {
+      if (v >= 0.1 && v <= 0.3) return { status: 'ok', text: 'Guter Wert für ein gedüngtes Pflanzenbecken.' };
+      if (v < 0.1) return { status: 'warn', text: 'Eher niedrig – bei Mangelsymptomen an Pflanzen nachdüngen.' };
+      return { status: 'warn', text: 'Erhöht – bei Garnelenbesatz vorsichtiger dosieren.' };
+    }
+  },
+  {
+    id: 'sio2', label: 'Silikat', unit: 'mg/l', slug: 'silikat', title: 'Silikat', step: '0.5',
+    evaluate: v => {
+      if (v < 2) return { status: 'ok', text: 'Unauffällig.' };
+      if (v <= 5) return { status: 'warn', text: 'Erhöht – Kieselalgen-Risiko, besonders in neuen Becken.' };
+      return { status: 'bad', text: 'Deutlich erhöht – siehe Artikel für Gegenmaßnahmen.' };
+    }
+  },
+  {
+    id: 'cu', label: 'Kupfer', unit: 'mg/l', slug: 'kupfer', title: 'Kupfer', step: '0.01',
+    evaluate: v => {
+      if (v <= 0) return { status: 'ok', text: 'Kein messbarer Wert.' };
+      if (v <= 0.2) return { status: 'warn', text: 'Für Fische meist unbedenklich, für Garnelen/Schnecken bereits riskant.' };
+      return { status: 'bad', text: 'Riskant für Fische, akut gefährlich für Garnelen und Schnecken.' };
+    }
+  },
+  {
+    id: 'co2', label: 'CO₂', unit: 'mg/l', slug: 'co2', title: 'CO2', step: '1',
+    evaluate: v => {
+      if (v >= 20 && v <= 30) return { status: 'ok', text: 'Guter Wert für ein CO2-gedüngtes Pflanzenbecken.' };
+      if (v < 20) return { status: 'warn', text: 'Eher niedrig für optimales Pflanzenwachstum.' };
+      if (v <= 40) return { status: 'warn', text: 'Erhöht – Fischverhalten im Blick behalten.' };
+      return { status: 'bad', text: 'Gefährlich hoch – sofort Zufuhr reduzieren und zusätzlich belüften.' };
+    }
+  }
+];
+
+const grid = document.getElementById('form-grid');
+PARAMS.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'field';
+  div.innerHTML = `
+    <label for="f-${p.id}">${p.label}</label>
+    <div class="input-wrap">
+      <input type="number" id="f-${p.id}" step="${p.step}" placeholder="—" inputmode="decimal">
+      ${p.unit ? `<span class="unit">${p.unit}</span>` : ''}
+    </div>
+  `;
+  grid.appendChild(div);
+});
+
+const statusRank = { bad: 0, warn: 1, ok: 2 };
+const statusLabel = { ok: 'Gut', warn: 'Beobachten', bad: 'Kritisch' };
+
+document.getElementById('berater-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const entered = [];
+  PARAMS.forEach(p => {
+    const raw = document.getElementById(`f-${p.id}`).value;
+    if (raw === '') return;
+    const value = parseFloat(raw);
+    if (isNaN(value)) return;
+    const result = p.evaluate(value);
+    entered.push({ ...p, value, ...result });
+  });
+
+  const resultsEl = document.getElementById('results');
+  const listEl = document.getElementById('result-list');
+  const summaryEl = document.getElementById('summary-line');
+  const alertEl = document.getElementById('alert-container');
+  listEl.innerHTML = '';
+  alertEl.innerHTML = '';
+
+  if (entered.length === 0) {
+    listEl.innerHTML = '<div class="empty-state">Trag mindestens einen Wert ein, um eine Auswertung zu erhalten.</div>';
+    summaryEl.textContent = '';
+    resultsEl.classList.add('visible');
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+
+  // Einlaufphase-Alarm
+  const nh4 = entered.find(e => e.id === 'nh4');
+  const no2 = entered.find(e => e.id === 'no2');
+  if ((nh4 && nh4.value > 0) || (no2 && no2.value > 0)) {
+    alertEl.innerHTML = `
+      <div class="alert-banner">
+        <span class="icon">⚠️</span>
+        <div>
+          <h3>Einlaufphase-Alarm</h3>
+          <p>Ammonium und/oder Nitrit sind messbar – das ist die kritischste Kombination im ganzen Wasserwerte-Set. Sofort handeln: Wasserwechsel, Fütterung stoppen. Details in den Artikeln zu
+          <a href="/wissen/de/ammonium/">Ammonium</a> und <a href="/wissen/de/nitrit/">Nitrit</a>.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // pH/KH Zusammenhang
+  const ph = entered.find(e => e.id === 'ph');
+  const kh = entered.find(e => e.id === 'kh');
+  if (ph && kh && ph.status !== 'ok' && kh.status !== 'ok') {
+    alertEl.innerHTML += `
+      <div class="alert-banner" style="border-color:rgba(61,184,232,0.4); background:linear-gradient(135deg, rgba(61,184,232,0.14), rgba(61,184,232,0.05));">
+        <span class="icon">💡</span>
+        <div>
+          <h3 style="color:var(--brand-blue);">pH und KH hängen zusammen</h3>
+          <p>Beide Werte weichen ab – das ist meist kein Zufall. Ein instabiler pH-Wert ist oft eigentlich ein KH-Problem. Mehr dazu im <a href="/wissen/de/kh/">KH-Artikel</a>.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  const counts = { bad: 0, warn: 0, ok: 0 };
+  entered.forEach(e => counts[e.status]++);
+  summaryEl.innerHTML = `<strong>${entered.length}</strong> Wert${entered.length !== 1 ? 'e' : ''} ausgewertet — <strong style="color:var(--ok)">${counts.ok} gut</strong>, <strong style="color:var(--warn)">${counts.warn} zu beobachten</strong>, <strong style="color:var(--bad)">${counts.bad} kritisch</strong>`;
+
+  entered.sort((a, b) => statusRank[a.status] - statusRank[b.status]);
+
+  entered.forEach(e => {
+    const item = document.createElement('div');
+    item.className = `result-item ${e.status}`;
+    item.innerHTML = `
+      <span class="result-dot"></span>
+      <div class="result-body">
+        <div class="result-head">
+          <h4>${e.label}</h4>
+          <span class="result-value">${e.value}${e.unit ? ' ' + e.unit : ''} · ${statusLabel[e.status]}</span>
+        </div>
+        <p class="result-text">${e.text}</p>
+        <a class="result-link" href="/wissen/de/${e.slug}/">Artikel lesen →</a>
+      </div>
+    `;
+    listEl.appendChild(item);
+  });
+
+  resultsEl.classList.add('visible');
+  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('reset-btn').addEventListener('click', function() {
+  document.getElementById('berater-form').reset();
+  document.getElementById('results').classList.remove('visible');
+});
+</script>
+
+</body>
+</html>
