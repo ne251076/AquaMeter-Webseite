@@ -98,6 +98,11 @@
       "@type": "Article",
       "headline": "CO2 im Aquarium",
       "url": "https://www.aquameter.info/wissen/de/co2/"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Wasserwerte-Berater",
+      "url": "https://www.aquameter.info/wissen/de/berater/"
     }
   ]
 }
@@ -341,6 +346,17 @@
   </div>
 </section>
 
+<section class="grid-wrap" style="padding-top:0; padding-bottom:0;">
+  <a href="/wissen/de/berater/" style="display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; background:linear-gradient(135deg, rgba(61,184,232,0.14), rgba(31,168,160,0.06)); border:1px solid rgba(61,184,232,0.3); border-radius:18px; padding:26px 28px; margin-bottom:40px; text-decoration:none;">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--brand-blue); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Neu · Kostenloses Tool</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; margin-bottom:6px;">Wasserwerte-Berater</div>
+      <div style="font-size:14px; color:var(--text-mid); max-width:52ch;">Werte eintragen, sofort eine Einschätzung erhalten – läuft komplett im Browser, ohne Anmeldung.</div>
+    </div>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; background:var(--brand-blue); color:#06131d; padding:11px 20px; border-radius:10px; font-weight:600; white-space:nowrap;">Jetzt auswerten →</span>
+  </a>
+</section>
+
 <section class="grid-wrap">
   <div class="grid-head">
     <h2>Alle Parameter</h2>
@@ -349,26 +365,10 @@
 
   <div class="grid">
 
-    <a href="/wissen/de/ph-wert/" class="card live">
-      <div class="card-top"><span class="param-code">PH</span><span class="status-dot ok"></span></div>
-      <h3>pH-Wert</h3>
-      <p>Säure/Basen-Gleichgewicht des Wassers – die Basis fast jeder Wasserchemie im Becken.</p>
-      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
-      <span class="card-cta">Artikel lesen →</span>
-    </a>
-
     <a href="/wissen/de/temperatur/" class="card live">
       <div class="card-top"><span class="param-code">TEMP</span><span class="status-dot ok"></span></div>
       <h3>Temperatur</h3>
       <p>Wie viel Grad je nach Besatz ideal sind und warum Schwankungen mehr schaden als Konstanz.</p>
-      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
-      <span class="card-cta">Artikel lesen →</span>
-    </a>
-
-    <a href="/wissen/de/ammonium/" class="card live">
-      <div class="card-top"><span class="param-code">NH4</span><span class="status-dot ok"></span></div>
-      <h3>Ammonium / Ammoniak</h3>
-      <p>Warum dieser Wert bei neu eingerichteten Becken der kritischste überhaupt ist.</p>
       <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
       <span class="card-cta">Artikel lesen →</span>
     </a>
@@ -381,10 +381,18 @@
       <span class="card-cta">Artikel lesen →</span>
     </a>
 
-    <a href="/wissen/de/nitrat/" class="card live">
-      <div class="card-top"><span class="param-code">NO3</span><span class="status-dot ok"></span></div>
-      <h3>Nitrat</h3>
-      <p>Das Endprodukt des Stickstoffkreislaufs – wann Wasserwechsel wirklich nötig sind.</p>
+    <a href="/wissen/de/ammonium/" class="card live">
+      <div class="card-top"><span class="param-code">NH4</span><span class="status-dot ok"></span></div>
+      <h3>Ammonium / Ammoniak</h3>
+      <p>Warum dieser Wert bei neu eingerichteten Becken der kritischste überhaupt ist.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Artikel lesen →</span>
+    </a>
+
+    <a href="/wissen/de/ph-wert/" class="card live">
+      <div class="card-top"><span class="param-code">PH</span><span class="status-dot ok"></span></div>
+      <h3>pH-Wert</h3>
+      <p>Säure/Basen-Gleichgewicht des Wassers – die Basis fast jeder Wasserchemie im Becken.</p>
       <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
       <span class="card-cta">Artikel lesen →</span>
     </a>
@@ -401,6 +409,14 @@
       <div class="card-top"><span class="param-code">GH</span><span class="status-dot ok"></span></div>
       <h3>Gesamthärte (GH)</h3>
       <p>Mineraliengehalt des Wassers – entscheidend für Fischgesundheit und Pflanzenwachstum.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Artikel lesen →</span>
+    </a>
+
+    <a href="/wissen/de/nitrat/" class="card live">
+      <div class="card-top"><span class="param-code">NO3</span><span class="status-dot ok"></span></div>
+      <h3>Nitrat</h3>
+      <p>Das Endprodukt des Stickstoffkreislaufs – wann Wasserwechsel wirklich nötig sind.</p>
       <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
       <span class="card-cta">Artikel lesen →</span>
     </a>
