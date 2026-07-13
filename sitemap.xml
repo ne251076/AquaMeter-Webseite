@@ -26,6 +26,56 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.aquameter.info/wissen/de/nitrit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/nitrat/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/kh/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/gh/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/sauerstoff/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/phosphat/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/eisen/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/silikat/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/kupfer/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquameter.info/wissen/de/co2/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.aquameter.info/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
