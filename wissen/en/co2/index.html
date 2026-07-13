@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>CO2 in the Aquarium: Ideal Range, Causes &amp; Fixes | AquaMeter</title>
+<meta name="description" content="CO2 in the aquarium explained clearly: the engine behind strong plant growth, and the line where it turns risky for fish. Ideal range, causes, and fixes.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/co2/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/co2/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/co2/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="CO2 in the Aquarium: Ideal Range, Causes & Fixes">
+<meta property="og:description" content="The engine behind strong plant growth, and the line where it turns risky for fish.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/co2/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CO2 in the Aquarium: Ideal Range, Causes & Fixes">
+<meta name="twitter:description" content="The engine behind strong plant growth and the line where it turns risky.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CO2 in the Aquarium",
+  "description": "CO2 in the aquarium explained clearly: the engine behind strong plant growth, and the line where it turns risky for fish. Ideal range, causes, and fixes.",
+  "url": "https://www.aquameter.info/wissen/en/co2/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "CO2 in the Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+  .callout.urgent{border-left-color:var(--bad);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/en/" class="back">← Knowledge Base</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / CO2</div>
+
+  <h1>CO2 in the Aquarium</h1>
+  <p class="subtitle">CO2 is the engine behind strong plant growth in fertilized planted tanks — but it's also the reading where overdosing turns dangerous for fish the fastest. Here's the ideal range and how to keep the balance.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 62 35" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M62 35 A96 96 0 0 1 110 22" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M110 22 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="62" y2="35" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typical ideal range (CO₂ injection)</div>
+      <div class="value">20 – 30<span>ppm</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>20–30 ppm ideal for plant growth</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>30–40 ppm borderline for fish</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&gt; 40 ppm dangerous</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>Why CO2 is dosed intentionally</h2>
+      <p>Plants need CO2 for photosynthesis, just like land plants take it from the air. In unplanted or lightly planted tanks, the CO2 naturally produced from fish respiration (roughly 2–5 ppm) is usually enough. In densely planted, high-light tanks, however, keepers often inject additional CO2 deliberately to support strong, healthy plant growth — <strong>without enough CO2, plant growth stalls despite good fertilizing and lighting</strong>.</p>
+      <p>The critical point: too much CO2 displaces dissolved oxygen and makes it harder for fish to get enough — the symptoms look a lot like oxygen deficiency.</p>
+    </section>
+
+    <section>
+      <h2>How CO2 is typically monitored</h2>
+      <p>Since direct CO2 tests are cumbersome, most fish keepers use a <strong>drop checker</strong>: a small glass vial with special indicator fluid that changes color based on CO2 saturation — usually blue (too little), green (ideal), or yellow (too much). It gives you a visual, ongoing check without running individual tests constantly.</p>
+    </section>
+
+    <section>
+      <h2>Why the reading fluctuates</h2>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Equipment issues:</strong> A faulty regulator or an empty CO2 tank causes sudden swings in either direction.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Wrong injection rate:</strong> Too many bubbles per second raise CO2 concentration faster than plants can consume it.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Poor circulation:</strong> Without good water movement, CO2 can distribute unevenly across the tank.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>CO2 running at night too:</strong> Without photosynthesis, plants stop consuming CO2 at night, which can let unnecessarily high levels build up while oxygen levels simultaneously drop.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What to do about deviations</h2>
+      <p>If <strong>CO2 is too low</strong> (poor plant growth, drop checker stays blue): gradually increase the injection rate while keeping an eye on fish behavior.</p>
+      <p>If <strong>CO2 is too high</strong> (fish gasping at the surface, drop checker turns yellow): immediately reduce or stop CO2 injection, add extra aeration with an air stone to drive off excess CO2 and raise oxygen levels.</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Put CO2 on a timer:</strong> Automatically switching it off during the dark period prevents nighttime overdosing.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Sync with your lighting:</strong> Ideally start CO2 1–2 hours before the lights come on and stop it when the lights go off.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Check the drop checker regularly:</strong> Daily checks, especially in the first few weeks after setting up a CO2 system.</p></div>
+      </div>
+      <div class="callout urgent">
+        <strong>Important:</strong> Fish visibly gasping at the surface is an emergency signal — stop CO2 immediately and add extra aeration, don't wait for the next test reading.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Never lose track of CO2 again</h3>
+      <p>AquaMeter tracks your CO2 history automatically and warns you before it turns risky for your fish.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>Related parameters</h2>
+    <div class="related-links">
+      <a href="/wissen/en/oxygen/">Oxygen (O₂)</a>
+      <a href="/wissen/en/ph-value/">pH Level</a>
+      <a href="/wissen/en/kh/">Carbonate Hardness (KH)</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/co2/</footer>
+
+</body>
+</html>

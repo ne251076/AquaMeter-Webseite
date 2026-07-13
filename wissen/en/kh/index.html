@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Carbonate Hardness (KH) in the Aquarium: Ideal Range, Causes &amp; Fixes | AquaMeter</title>
+<meta name="description" content="Carbonate hardness (KH) in the aquarium explained clearly: why it keeps your pH stable, which range is ideal, and what happens when KH runs too low or too high.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/kh/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/kh/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/kh/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Carbonate Hardness (KH) in the Aquarium: Ideal Range, Causes & Fixes">
+<meta property="og:description" content="Why KH keeps your pH stable, which range is ideal, and what happens with deviations.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/kh/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carbonate Hardness (KH) in the Aquarium: Ideal Range, Causes & Fixes">
+<meta name="twitter:description" content="Why KH keeps your pH stable and what happens with deviations.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Carbonate Hardness (KH) in the Aquarium",
+  "description": "Carbonate hardness (KH) in the aquarium explained clearly: why it keeps your pH stable, which range is ideal, and what happens when KH runs too low or too high.",
+  "url": "https://www.aquameter.info/wissen/en/kh/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Carbonate Hardness (KH) in the Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/en/" class="back">← Knowledge Base</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Carbonate Hardness (KH)</div>
+
+  <h1>Carbonate Hardness (KH) in the Aquarium</h1>
+  <p class="subtitle">Carbonate hardness buffers your pH and prevents sudden crashes — often the real reason behind seemingly unexplainable pH problems. Here's the ideal range, why it fluctuates, and what to do about deviations.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 76 26" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M76 26 A96 96 0 0 1 110 14" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M110 14 A96 96 0 0 1 148 22" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M148 22 A96 96 0 0 1 178 46" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M178 46 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="128" y2="34" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typical ideal range</div>
+      <div class="value">4 – 8<span>°dKH</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>4–8 °dKH ideal</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>2–4 / 8–12 °dKH borderline</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&lt;2 °dKH crash risk</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>What carbonate hardness actually does</h2>
+      <p>Carbonate hardness (KH) measures your water's buffering capacity — how well it cushions acid inputs without the pH immediately tipping over. Chemically, it's mainly driven by bicarbonate ion content (HCO3⁻).</p>
+      <p>Think of KH as a shock absorber for your pH: <strong>the higher the KH, the more stable your pH stays even under acid input</strong> (e.g. from CO₂ injection or organic breakdown). Once KH is depleted, the water loses this buffering entirely — and the pH can crash drastically within a few hours.</p>
+    </section>
+
+    <section>
+      <h2>Ideal range by stocking</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Stocking / tank type</th><th>KH range</th><th>Note</th></tr>
+          <tr><td>General community tank</td><td>4 – 8 °dKH</td><td><span class="tag ok"><span class="dot"></span>Standard range</span></td></tr>
+          <tr><td>Discus, Amazon species (soft water)</td><td>1 – 4 °dKH</td><td>low KH is intentional, but watch crash risk</td></tr>
+          <tr><td>Malawi/Tanganyika cichlids</td><td>10 – 18 °dKH</td><td>hard, strongly buffered water desired</td></tr>
+          <tr><td>Planted tank with CO₂ injection</td><td>3 – 6 °dKH</td><td>lower KH makes pH-lowering via CO₂ easier</td></tr>
+          <tr><td>Shrimp (Neocaridina)</td><td>4 – 8 °dKH</td><td>stability matters more than the exact number</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why KH fluctuates</h2>
+      <p>The most common causes of falling carbonate hardness:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Natural consumption over time:</strong> Organic acids from fish waste and leftover food continuously consume carbonate hardness.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Soft tap water or RO water:</strong> Using water with very low KH for water changes gradually lowers overall KH in the tank.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Tannins from wood and leaves:</strong> Driftwood, alder cones, or leaf litter release acids that further deplete KH.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Very soft substrates:</strong> Some aquasoil substrates for planted tanks actively and intentionally lower KH — worth being aware of.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What to do about deviations</h2>
+      <p>If <strong>KH is too low</strong> (crash risk): dedicated KH-boosting products or sodium bicarbonate (baking soda, dosed very carefully) raise buffering capacity directly. Crushed coral or aragonite in the filter also release KH continuously and gently.</p>
+      <p>If <strong>KH is too high</strong> (e.g. a soft-water fish tank that's over-buffered): mixing in RO or rainwater during water changes lowers KH gradually. Peat in the filter also has a lowering effect.</p>
+      <div class="callout">
+        <strong>Important:</strong> Always look at KH and pH together. A sudden, unexplained pH crash is almost always a KH problem, not a pure pH problem — check KH first before adjusting pH directly.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Never lose track of KH again</h3>
+      <p>AquaMeter tracks your KH history automatically and warns you before a pH crash threatens.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>Related parameters</h2>
+    <div class="related-links">
+      <a href="/wissen/en/ph-value/">pH Level</a>
+      <a href="/wissen/en/gh/">General Hardness (GH)</a>
+      <a href="/wissen/en/co2/">CO₂</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/kh/</footer>
+
+</body>
+</html>

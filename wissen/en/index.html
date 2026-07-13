@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Knowledge Base – Aquarium Water Parameters | AquaMeter</title>
+<meta name="description" content="All aquarium water parameters explained clearly: ideal ranges, causes of deviations, and what you can do. From the makers of AquaMeter.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.aquameter.info/wissen/de/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Knowledge Base – Aquarium Water Parameters | AquaMeter">
+<meta property="og:description" content="All aquarium water parameters explained clearly: ideal ranges, causes of deviations, and what you can do.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Knowledge Base – Aquarium Water Parameters | AquaMeter">
+<meta name="twitter:description" content="All aquarium water parameters explained clearly: ideal ranges, causes, and fixes.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Knowledge Base – Aquarium Water Parameters",
+  "url": "https://www.aquameter.info/wissen/en/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  },
+  "inLanguage": "en",
+  "hasPart": [
+    {
+      "@type": "Article",
+      "headline": "Temperature in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/temperature/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Nitrite in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/nitrite/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Ammonia and Ammonium in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/ammonia/"
+    },
+    {
+      "@type": "Article",
+      "headline": "pH Level in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/ph-value/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Carbonate Hardness (KH) in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/kh/"
+    },
+    {
+      "@type": "Article",
+      "headline": "General Hardness (GH) in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/gh/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Nitrate in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/nitrate/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Oxygen in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/oxygen/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Phosphate in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/phosphate/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Iron in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/iron/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Silicate in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/silicate/"
+    },
+    {
+      "@type": "Article",
+      "headline": "Copper in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/copper/"
+    },
+    {
+      "@type": "Article",
+      "headline": "CO2 in the Aquarium",
+      "url": "https://www.aquameter.info/wissen/en/co2/"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Water Parameter Advisor",
+      "url": "https://www.aquameter.info/wissen/en/advisor/"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(31,168,160,0.12), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:1080px;
+    margin:0 auto;
+    padding:28px 24px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.01em;}
+  .brand .drop{
+    width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(160deg,#111c2c,#0a121e);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .brand .drop svg{width:16px;height:16px;}
+  nav.top a{font-size:14px;color:var(--text-mid);margin-left:26px;transition:color .15s;}
+  nav.top a:hover{color:var(--text-hi);}
+
+  .hero{
+    max-width:1080px;
+    margin:0 auto;
+    padding:64px 24px 40px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brand-blue);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--brand-blue);opacity:.6;}
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    margin:18px 0 20px;
+    max-width:18ch;
+  }
+  h1 em{font-style:normal;color:var(--brand-blue);}
+  .lede{
+    font-size:17px;
+    line-height:1.6;
+    color:var(--text-mid);
+    max-width:56ch;
+    margin:0 0 8px;
+  }
+
+  /* signature gauge */
+  .gauge-row{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .gauge{width:76px;height:44px;}
+  .gauge-caption{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+
+  section.grid-wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:20px 24px 100px;
+  }
+  .grid-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;
+    margin-bottom:28px;
+  }
+  .grid-head h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+  }
+  .grid-head span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-low);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:14px;
+  }
+  .card{
+    position:relative;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:border-color .15s, transform .15s;
+  }
+  .card.live:hover{border-color:rgba(61,184,232,0.5); transform:translateY(-2px);}
+  .card.soon{opacity:0.45;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .param-code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--text-low);
+    letter-spacing:0.06em;
+  }
+  .status-dot{width:8px;height:8px;border-radius:50%;margin-top:3px;}
+  .status-dot.ok{background:var(--ok);}
+  .status-dot.soon{background:var(--text-low);}
+  .card h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px;
+    font-weight:600;
+    margin:0;
+  }
+  .card p{
+    font-size:13px;
+    color:var(--text-mid);
+    line-height:1.5;
+    margin:0;
+  }
+  .mini-gauge{width:100%;height:34px;margin-top:auto;}
+  .card-cta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brand-blue);
+    letter-spacing:0.04em;
+  }
+  .soon .card-cta{color:var(--text-low);}
+
+  footer.site{
+    max-width:1080px;
+    margin:0 auto;
+    padding:40px 24px 60px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer.site .app-cta{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  footer.site .app-cta .drop{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(160deg,#111c2c,#0a121e);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  footer.site .app-cta .drop svg{width:20px;height:20px;}
+  footer.site .app-cta div p{margin:0;font-size:13px;color:var(--text-mid);}
+  footer.site .app-cta div strong{font-family:'Space Grotesk',sans-serif;font-size:15px;}
+  footer .lang-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);}
+
+  @media (max-width:640px){
+    .hero{padding-top:44px;}
+    nav.top{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg>
+    </span>
+    AquaMeter
+  </a>
+  <nav class="top">
+    <a href="/en/">Home</a>
+    <a href="/wissen/en/">Knowledge</a>
+    <a href="/wissen/de/">DE</a>
+    <a href="/datenschutz.html">Privacy</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Knowledge Base</div>
+  <h1>Understand your water parameters <em>before</em> they become a problem</h1>
+  <p class="lede">
+    What pH, NO2, or KH actually mean, which range is ideal for your tank, and what to do when a reading goes off track. Explained clearly, no fish-keeping degree required.
+  </p>
+
+  <div class="gauge-row">
+    <svg class="gauge" viewBox="0 0 76 44">
+      <path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="38" cy="40" r="3" fill="#eaf3f7"/>
+    </svg>
+    <span class="gauge-caption">13 parameters · same traffic-light logic as the app</span>
+  </div>
+</section>
+
+<section class="grid-wrap" style="padding-top:0; padding-bottom:0;">
+  <a href="/wissen/en/advisor/" style="display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; background:linear-gradient(135deg, rgba(61,184,232,0.14), rgba(31,168,160,0.06)); border:1px solid rgba(61,184,232,0.3); border-radius:18px; padding:26px 28px; margin-bottom:40px; text-decoration:none;">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--brand-blue); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">New · Free tool</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; margin-bottom:6px;">Water Parameter Advisor</div>
+      <div style="font-size:14px; color:var(--text-mid); max-width:52ch;">Enter your readings, get an instant assessment – runs entirely in your browser, no sign-up needed.</div>
+    </div>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; background:var(--brand-blue); color:#06131d; padding:11px 20px; border-radius:10px; font-weight:600; white-space:nowrap;">Evaluate now →</span>
+  </a>
+</section>
+
+<section class="grid-wrap">
+  <div class="grid-head">
+    <h2>All parameters</h2>
+    <span>EN — also available in <a href="/wissen/de/" style="color:var(--brand-blue);">German</a></span>
+  </div>
+
+  <div class="grid">
+
+    <a href="/wissen/en/temperature/" class="card live">
+      <div class="card-top"><span class="param-code">TEMP</span><span class="status-dot ok"></span></div>
+      <h3>Temperature</h3>
+      <p>How many degrees are ideal depending on stocking, and why swings do more harm than a steady offset.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/nitrite/" class="card live">
+      <div class="card-top"><span class="param-code">NO2</span><span class="status-dot ok"></span></div>
+      <h3>Nitrite</h3>
+      <p>The invisible risk during the cycling phase – and how to catch it early.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/ammonia/" class="card live">
+      <div class="card-top"><span class="param-code">NH4</span><span class="status-dot ok"></span></div>
+      <h3>Ammonia / Ammonium</h3>
+      <p>Why this is the single most critical reading in a newly set-up tank.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/ph-value/" class="card live">
+      <div class="card-top"><span class="param-code">PH</span><span class="status-dot ok"></span></div>
+      <h3>pH Level</h3>
+      <p>The acid/base balance of your water – the foundation of almost all tank chemistry.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/kh/" class="card live">
+      <div class="card-top"><span class="param-code">KH</span><span class="status-dot ok"></span></div>
+      <h3>Carbonate Hardness (KH)</h3>
+      <p>The buffer that keeps your pH stable – and what happens when KH runs too low.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/gh/" class="card live">
+      <div class="card-top"><span class="param-code">GH</span><span class="status-dot ok"></span></div>
+      <h3>General Hardness (GH)</h3>
+      <p>Mineral content of the water – key for fish health and plant growth.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/nitrate/" class="card live">
+      <div class="card-top"><span class="param-code">NO3</span><span class="status-dot ok"></span></div>
+      <h3>Nitrate</h3>
+      <p>The end product of the nitrogen cycle – and when water changes are actually necessary.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/oxygen/" class="card live">
+      <div class="card-top"><span class="param-code">O2</span><span class="status-dot ok"></span></div>
+      <h3>Oxygen</h3>
+      <p>Why oxygen deficiency often goes unnoticed until fish are gasping at the surface.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/phosphate/" class="card live">
+      <div class="card-top"><span class="param-code">PO4</span><span class="status-dot ok"></span></div>
+      <h3>Phosphate</h3>
+      <p>The most common driver of algae problems – and how to find the source.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/iron/" class="card live">
+      <div class="card-top"><span class="param-code">FE</span><span class="status-dot ok"></span></div>
+      <h3>Iron</h3>
+      <p>Why planted tanks often need targeted iron dosing – and how much is enough.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/silicate/" class="card live">
+      <div class="card-top"><span class="param-code">SIO2</span><span class="status-dot ok"></span></div>
+      <h3>Silicate</h3>
+      <p>Mainly relevant for diatoms – and when an elevated reading is even a problem.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/copper/" class="card live">
+      <div class="card-top"><span class="param-code">CU</span><span class="status-dot ok"></span></div>
+      <h3>Copper</h3>
+      <p>Why this reading matters most for shrimp and invertebrates.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+    <a href="/wissen/en/co2/" class="card live">
+      <div class="card-top"><span class="param-code">CO2</span><span class="status-dot ok"></span></div>
+      <h3>CO₂</h3>
+      <p>The engine behind strong plant growth – and the line where it turns risky for fish.</p>
+      <svg class="mini-gauge" viewBox="0 0 76 44"><path d="M6 40 A32 32 0 0 1 70 40" stroke="#233149" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M6 40 A32 32 0 0 1 46 9.5" stroke="#4cae7d" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M46 9.5 A32 32 0 0 1 62 20" stroke="#f2b134" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M62 20 A32 32 0 0 1 70 40" stroke="#e85d4a" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="38" y1="40" x2="30" y2="16" stroke="#eaf3f7" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="40" r="3" fill="#eaf3f7"/></svg>
+      <span class="card-cta">Read article →</span>
+    </a>
+
+  </div>
+</section>
+
+<footer class="site">
+  <a class="app-cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225" style="text-decoration:none;color:inherit;">
+    <span class="drop">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg>
+    </span>
+    <div>
+      <strong>Track every value automatically</strong>
+      <p>AquaMeter logs trends, evaluates readings with a traffic-light system, and warns you of deviations. Get it now →</p>
+    </div>
+  </a>
+  <span class="lang-note">/wissen/en/ · also available in German</span>
+</footer>
+
+</body>
+</html>

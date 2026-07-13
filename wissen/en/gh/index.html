@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>General Hardness (GH) in the Aquarium: Ideal Range, Causes &amp; Fixes | AquaMeter</title>
+<meta name="description" content="General hardness (GH) in the aquarium explained clearly: which range is ideal for which fish and shrimp, how it differs from KH, and what to do about deviations.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/gh/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/gh/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/gh/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="General Hardness (GH) in the Aquarium: Ideal Range, Causes & Fixes">
+<meta property="og:description" content="Which range is ideal for which fish and shrimp, and how GH differs from KH.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/gh/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="General Hardness (GH) in the Aquarium: Ideal Range, Causes & Fixes">
+<meta name="twitter:description" content="Which range is ideal for which fish and shrimp, and how GH differs from KH.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "General Hardness (GH) in the Aquarium",
+  "description": "General hardness (GH) in the aquarium explained clearly: which range is ideal for which fish and shrimp, how it differs from KH, and what to do about deviations.",
+  "url": "https://www.aquameter.info/wissen/en/gh/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "General Hardness (GH) in the Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/en/" class="back">← Knowledge Base</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / General Hardness (GH)</div>
+
+  <h1>General Hardness (GH) in the Aquarium</h1>
+  <p class="subtitle">General hardness tells you how much calcium and magnesium is dissolved in the water — essential for osmoregulation, shrimp molting, and plant nutrition. Here's the ideal range and how GH differs from KH.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 76 26" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M76 26 A96 96 0 0 1 110 14" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M110 14 A96 96 0 0 1 148 22" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M148 22 A96 96 0 0 1 178 46" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M178 46 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="128" y2="34" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typical ideal range</div>
+      <div class="value">6 – 12<span>°dGH</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>6–12 °dGH ideal</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>2–6 / 12–18 °dGH borderline</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&lt;2 °dGH risky</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>What general hardness actually shows</h2>
+      <p>General hardness (GH) mainly measures the concentration of calcium and magnesium ions in the water. Both minerals are essential for fish osmoregulation (their internal salt-water balance) and, for shrimp and snails, additionally crucial for building shell or exoskeleton.</p>
+      <p><strong>GH and KH are often confused, but they measure different things:</strong> KH measures buffering capacity (bicarbonate), GH measures total calcium and magnesium content. Water can absolutely have high GH with low KH or vice versa — it's worth checking both separately.</p>
+    </section>
+
+    <section>
+      <h2>Ideal range by stocking</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Stocking</th><th>GH range</th><th>Note</th></tr>
+          <tr><td>General community tank</td><td>6 – 12 °dGH</td><td><span class="tag ok"><span class="dot"></span>Standard range</span></td></tr>
+          <tr><td>Discus, tetras, rasboras (soft water)</td><td>2 – 6 °dGH</td><td>soft water desired</td></tr>
+          <tr><td>Malawi/Tanganyika cichlids, livebearers</td><td>12 – 20 °dGH</td><td>hard water desired</td></tr>
+          <tr><td>Neocaridina shrimp</td><td>6 – 8 °dGH</td><td>too-low GH makes molting harder</td></tr>
+          <tr><td>Caridina shrimp (e.g. bee shrimp)</td><td>4 – 6 °dGH</td><td>noticeably softer water than Neocaridina</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why GH fluctuates</h2>
+      <p>The most common causes of change:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Evaporation:</strong> When water evaporates, minerals stay behind — GH creeps upward if you only top off with tap water instead of RO water.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Changing tap water:</strong> Your utility's GH can shift slightly by season.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Mineral-based decor:</strong> Limestone rocks or crushed coral continuously release minerals and slowly raise GH.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>Remineralizing products:</strong> Deliberately dosed GH boosters for shrimp or hard-water fish raise the value on purpose.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What to do about deviations</h2>
+      <p>If <strong>GH is too low</strong>: dedicated GH-boosting products (calcium/magnesium mineral salts) added directly to the water, dosed per the manufacturer's instructions. Especially important for shrimp, since too-low GH can cause molting problems.</p>
+      <p>If <strong>GH is too high</strong>: mixing in RO or distilled water during water changes lowers GH gradually. When topping off evaporated water, use only RO water instead of tap water to avoid a slow creep upward.</p>
+      <div class="callout">
+        <strong>Important for shrimp keepers:</strong> Low GH is one of the most common yet least obvious causes of molting problems and sudden shrimp deaths — when losses are unexplained, this is always worth checking.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Never lose track of GH again</h3>
+      <p>AquaMeter tracks your GH history automatically and evaluates it based on your specific stocking.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>Related parameters</h2>
+    <div class="related-links">
+      <a href="/wissen/en/kh/">Carbonate Hardness (KH)</a>
+      <a href="/wissen/en/ph-value/">pH Level</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/gh/</footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Water Temperature in the Aquarium: Ideal Range, Causes &amp; Fixes | AquaMeter</title>
+<meta name="description" content="Aquarium water temperature explained clearly: which temperature is ideal for which fish, why it fluctuates, and how to keep it stable.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/temperature/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/temperatur/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/temperature/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Water Temperature in the Aquarium: Ideal Range, Causes & Fixes">
+<meta property="og:description" content="Which temperature is ideal for which fish, why it fluctuates, and how to keep it stable.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/temperature/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Water Temperature in the Aquarium: Ideal Range, Causes & Fixes">
+<meta name="twitter:description" content="Which temperature is ideal for which fish and how to keep it stable.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Water Temperature in the Aquarium",
+  "description": "Aquarium water temperature explained clearly: which temperature is ideal for which fish, why it fluctuates, and how to keep it stable.",
+  "url": "https://www.aquameter.info/wissen/en/temperature/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Water Temperature in the Aquarium"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:58ch;margin:0 0 34px;}
+
+  .gauge-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    display:flex;
+    gap:36px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .gauge-big{width:220px;height:130px;flex-shrink:0;}
+  .gauge-readout{font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .label{font-size:12px;color:var(--text-low);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+  .gauge-readout .value{font-size:34px;font-weight:600;color:var(--text-hi);}
+  .gauge-readout .value span{color:var(--brand-blue);font-size:18px;margin-left:4px;}
+  .legend{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;}
+  .legend .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-mid);}
+  .legend .dot{width:9px;height:9px;border-radius:50%;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:20px;
+  }
+  .tag.ok{background:rgba(76,174,125,0.14);color:var(--ok);}
+  .tag .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .steps{display:flex;flex-direction:column;gap:12px;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+  }
+  .step .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brand-blue);
+    flex-shrink:0;width:22px;
+  }
+  .step p{margin:0;font-size:14.5px;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  .related-links span{
+    font-size:13px;color:var(--text-low);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+  }
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <a href="/wissen/en/" class="back">← Knowledge Base</a>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Temperature</div>
+
+  <h1>Water Temperature in the Aquarium</h1>
+  <p class="subtitle">Temperature directly affects your fish's metabolism, activity level, and oxygen demand — and it's one of the few readings that's easy to keep rock-steady with simple equipment. Here's the ideal range, why it fluctuates, and how to keep it stable.</p>
+
+  <div class="gauge-card">
+    <svg class="gauge-big" viewBox="0 0 220 130">
+      <path d="M14 118 A96 96 0 0 1 206 118" stroke="#233149" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M14 118 A96 96 0 0 1 76 26" stroke="#f2b134" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M76 26 A96 96 0 0 1 118 15" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M118 15 A96 96 0 0 1 152 24" stroke="#4cae7d" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M152 24 A96 96 0 0 1 206 118" stroke="#e85d4a" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="118" x2="122" y2="30" stroke="#eaf3f7" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="110" cy="118" r="6" fill="#eaf3f7"/>
+    </svg>
+    <div class="gauge-readout">
+      <div class="label">Typical ideal range</div>
+      <div class="value">24 – 26<span>°C</span></div>
+      <div class="legend">
+        <span class="item"><span class="dot" style="background:var(--ok)"></span>24–26°C ideal (community tank)</span>
+        <span class="item"><span class="dot" style="background:var(--warn)"></span>22–24°C / 26–28°C borderline</span>
+        <span class="item"><span class="dot" style="background:var(--bad)"></span>&lt;20°C / &gt;30°C critical</span>
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <section>
+      <h2>Why temperature matters so much</h2>
+      <p>Fish are cold-blooded — their body temperature, and with it their entire metabolism, depends directly on the water temperature. Water that's too warm speeds up metabolism while simultaneously lowering dissolved oxygen; water that's too cold slows digestion and the immune system. Both increase stress and disease susceptibility.</p>
+      <p>Unlike chemical readings such as pH or KH, temperature is easy to hold steady with a simple, inexpensive heater — <strong>fluctuations here are usually an equipment or placement issue, not a water-chemistry issue.</strong></p>
+    </section>
+
+    <section>
+      <h2>Ideal range by stocking</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Stocking</th><th>Temperature</th><th>Note</th></tr>
+          <tr><td>General community tank</td><td>24 – 26°C</td><td><span class="tag ok"><span class="dot"></span>Standard range</span></td></tr>
+          <tr><td>Discus</td><td>28 – 30°C</td><td>noticeably warmer than usual</td></tr>
+          <tr><td>Betta</td><td>24 – 27°C</td><td>tolerates a bit more short-term flexibility</td></tr>
+          <tr><td>Goldfish / coldwater fish</td><td>18 – 22°C</td><td>no heater needed, often unsuitable even</td></tr>
+          <tr><td>Shrimp (Neocaridina)</td><td>20 – 24°C</td><td>too warm noticeably shortens lifespan</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why temperature fluctuates</h2>
+      <p>The most common causes of fluctuation:</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p><strong>Faulty or miscalibrated heater:</strong> By far the most common cause — thermostats can drift over time or fail entirely.</p></div>
+        <div class="step"><span class="n">02</span><p><strong>Placement near a window or radiator:</strong> Direct sunlight or proximity to room heating causes swings a heater can't compensate for.</p></div>
+        <div class="step"><span class="n">03</span><p><strong>Water changes that are too cold:</strong> Refilling with noticeably colder tap water causes a short-term temperature drop.</p></div>
+        <div class="step"><span class="n">04</span><p><strong>No lid:</strong> Without a cover glass or lid, more water evaporates, adding an extra cooling effect — especially noticeable in winter.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What to do about deviations</h2>
+      <p>If <strong>temperature is too low</strong>: check that the heater is actually working (often a quick look at whether the indicator light comes on while heating is enough) and recalibrate the thermostat. For larger tanks or sensitive stock, a second, smaller backup heater is worth it.</p>
+      <p>If <strong>temperature is too high</strong> (common in summer): extra aeration via an air stone raises the oxygen level, which drops as temperature rises. Cracking the lid allows evaporative cooling. In extreme cases, cooling fans at the tank's rim can help.</p>
+      <div class="callout">
+        <strong>Important:</strong> Always bring new water to tank temperature — or at least close to it — before a water change. A jump of more than 2–3°C at once is far more stressful for most fish than a permanently slightly off, but stable, temperature.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Never lose track of temperature again</h3>
+      <p>AquaMeter tracks your temperature history automatically, evaluates it with a traffic-light system, and shows you trends over time.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>Related parameters</h2>
+    <div class="related-links">
+      <a href="/wissen/en/ph-value/">pH Level</a>
+      <a href="/wissen/en/oxygen/">Oxygen (O₂)</a>
+      <a href="/wissen/en/co2/">CO₂</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/temperature/</footer>
+
+</body>
+</html>
