@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Kontakt | AquaMeter</title>
+<meta name="description" content="Kontaktiere uns bei Fragen, Feedback oder Problemen mit AquaMeter.">
+<link rel="canonical" href="https://www.aquameter.info/kontakt.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B1517;
+    --bg-2: #0F1B1E;
+    --surface: #16262A;
+    --border: #24393D;
+    --text: #EDF3F2;
+    --text-muted: #8FA6A3;
+    --accent: #4FB6C4;
+    --ok: #4cae7d;
+    --bad: #e85d4a;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent); }
+  .wrap{ max-width:640px; margin:0 auto; padding:0 24px; }
+
+  nav{ border-bottom:1px solid var(--border); padding:22px 0; }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; max-width:640px; }
+  .wordmark{ font-family:'Space Grotesk', sans-serif; font-size:18px; font-weight:700; letter-spacing:-0.02em; text-decoration:none; color:var(--text); }
+  .wordmark span{ color:var(--accent); }
+  nav a.back{ font-size:14px; color:var(--text-muted); text-decoration:none; }
+  nav a.back:hover{ color:var(--text); }
+
+  main{ padding:64px 0 100px; }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:36px;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin-bottom:14px;
+  }
+  p.lede{ font-size:16px; color:var(--text-muted); margin-bottom:36px; max-width:52ch; }
+
+  form{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px;
+  }
+  .field{ margin-bottom:20px; }
+  .field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--text-muted);
+    margin-bottom:8px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    background:var(--bg-2);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 14px;
+    color:var(--text);
+    font-family:inherit;
+    font-size:15px;
+    transition:border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  .field textarea{ resize:vertical; min-height:140px; }
+
+  .honeypot{ position:absolute; left:-9999px; opacity:0; }
+
+  button[type="submit"]{
+    background:var(--accent);
+    color:#06181A;
+    font-weight:700;
+    font-size:15px;
+    padding:13px 28px;
+    border:none;
+    border-radius:100px;
+    cursor:pointer;
+    font-family:'Inter', sans-serif;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  button[type="submit"]:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(79,182,196,0.3);
+  }
+  button[type="submit"]:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+    transform:none;
+  }
+
+  .form-note{
+    font-size:12.5px;
+    color:var(--text-muted);
+    margin-top:16px;
+  }
+  .form-note a{ color:var(--accent); }
+
+  #status{
+    margin-top:20px;
+    padding:14px 18px;
+    border-radius:10px;
+    font-size:14px;
+    display:none;
+  }
+  #status.visible{ display:block; }
+  #status.success{
+    background:rgba(76,174,125,0.12);
+    border:1px solid rgba(76,174,125,0.35);
+    color:var(--ok);
+  }
+  #status.error{
+    background:rgba(232,93,74,0.12);
+    border:1px solid rgba(232,93,74,0.35);
+    color:var(--bad);
+  }
+
+  footer{ border-top:1px solid var(--border); padding:32px 0; margin-top:20px; }
+  footer .wrap{ display:flex; gap:24px; font-size:13.5px; color:var(--text-muted); max-width:640px; }
+  footer a{ text-decoration:none; color:var(--text-muted); }
+  footer a:hover{ color:var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="wordmark">Aqua<span>Meter</span></a>
+    <a href="/" class="back">← Zurück zur Startseite</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <h1>Kontakt</h1>
+    <p class="lede">Fragen, Feedback oder ein Problem mit der App? Schreib uns kurz, wir melden uns so schnell wie möglich zurück.</p>
+
+    <form id="contact-form">
+      <!-- Honeypot-Feld gegen Spam-Bots: für Menschen unsichtbar, Bots füllen es oft trotzdem aus -->
+      <div class="honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="email">E-Mail-Adresse</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="subject">Betreff</label>
+        <select id="subject" name="subject" required>
+          <option value="">Bitte wählen…</option>
+          <option value="Frage zur App">Frage zur App</option>
+          <option value="Fehler / Bug melden">Fehler / Bug melden</option>
+          <option value="Feature-Wunsch">Feature-Wunsch</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn">Nachricht senden</button>
+
+      <div id="status"></div>
+
+      <p class="form-note">Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage per E-Mail an uns übermittelt. Details dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">Startseite</a>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+  // ACHTUNG: Vor dem Hochladen die Formspree-Endpoint-URL unten eintragen (siehe Anleitung im Chat)
+  const FORM_ENDPOINT = "https://formspree.io/f/DEINE_FORM_ID";
+
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('status');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Wird gesendet…";
+    statusEl.className = '';
+
+    try{
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if(res.ok){
+        statusEl.textContent = "Danke! Deine Nachricht wurde verschickt. Wir melden uns so schnell wie möglich.";
+        statusEl.className = 'visible success';
+        form.reset();
+      } else {
+        statusEl.textContent = "Da ist leider etwas schiefgelaufen. Schreib uns stattdessen direkt an aquameterapp@gmail.com.";
+        statusEl.className = 'visible error';
+      }
+    } catch(err){
+      statusEl.textContent = "Da ist leider etwas schiefgelaufen. Schreib uns stattdessen direkt an aquameterapp@gmail.com.";
+      statusEl.className = 'visible error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Nachricht senden";
+    }
+  });
+</script>
+
+</body>
+</html>
