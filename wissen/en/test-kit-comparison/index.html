@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Water Test Comparison: Drop Tests vs. App Strips vs. Photometers | AquaMeter</title>
+<meta name="description" content="Drop tests, app-scanned test strips, or a photometer? An honest comparison of accuracy, price, and effort for aquarium water testing.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/test-kit-comparison/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/testkit-vergleich/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/test-kit-comparison/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Water Test Comparison: Drop Tests vs. App Strips vs. Photometers">
+<meta property="og:description" content="An honest comparison of accuracy, price, and effort for aquarium water testing.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/test-kit-comparison/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Water Test Comparison: Drop Tests vs. App Strips vs. Photometers">
+<meta name="twitter:description" content="An honest comparison of accuracy, price, and effort for aquarium water testing.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Water Test Comparison: Drop Tests vs. App Strips vs. Photometers",
+  "description": "Drop tests, app-scanned test strips, or a photometer? An honest comparison of accuracy, price, and effort for aquarium water testing.",
+  "url": "https://www.aquameter.info/wissen/en/test-kit-comparison/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AquaMeter",
+    "url": "https://www.aquameter.info/en/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;text-decoration:none;}
+  .back:hover{color:var(--brand-blue);}
+
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;text-decoration:none;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 34px;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article h3{
+    font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;
+    margin:0 0 12px;color:var(--brand-blue);
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .method-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    margin-bottom:20px;
+  }
+  .method-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;margin-bottom:14px;flex-wrap:wrap;
+  }
+  .method-price{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-low);
+    background:var(--bg-panel-raised);border:1px solid var(--line);
+    padding:6px 14px;border-radius:20px;white-space:nowrap;
+  }
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px;}
+  .pros-cons .col h4{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;
+    letter-spacing:.06em;margin:0 0 10px;
+  }
+  .pros-cons .col.pro h4{color:var(--ok);}
+  .pros-cons .col.con h4{color:var(--bad);}
+  .pros-cons ul{margin:0;padding-left:18px;}
+  .pros-cons li{font-size:14px;color:var(--text-mid);margin-bottom:6px;line-height:1.5;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    overflow-x:auto;
+  }
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  th{
+    text-align:left;padding:14px 18px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+  .rec-card{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+  }
+  .rec-card .who{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brand-blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .rec-card .what{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:6px;}
+  .rec-card p{font-size:13.5px;margin:0;}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;color:var(--text-hi);}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+
+  @media (max-width:560px){
+    .pros-cons{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/en/" class="back">← Knowledge Base</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/testkit-vergleich/" class="lang-link">DE</a>
+      <a href="/wissen/en/test-kit-comparison/" class="lang-link active">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Water Test Comparison</div>
+
+  <h1>Drop Test, App-Scanned Strips, or Photometer?</h1>
+  <p class="subtitle">Three completely different ways to arrive at the same number. An honest comparison with no purchase pressure — so you can pick the testing method that actually fits your tank.</p>
+
+  <article>
+    <section>
+      <h2>Why multiple methods even exist</h2>
+      <p>All three methods measure fundamentally the same thing: a chemical color reaction tied to the concentration of a substance in the water. The difference is <strong>who or what reads the color</strong> — your eye, a smartphone camera, or an optical sensor. That has direct consequences for accuracy, price, and how much time a test takes.</p>
+    </section>
+
+    <section>
+      <h2>The three methods at a glance</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Method</th><th>Accuracy</th><th>Time per test</th><th>Starting price</th></tr>
+          <tr><td>Drop test</td><td>Good, depends on your eye</td><td>2–5 min</td><td>~$35–45 (full kit)</td></tr>
+          <tr><td>App-scanned strips</td><td>Fair to good</td><td>&lt;1 min</td><td>~$18–22 (kit), ~$16 refill</td></tr>
+          <tr><td>Photometer</td><td>Very good</td><td>2–5 min</td><td>~$75 per single parameter</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>1. Drop test — the classic</h2>
+      <div class="method-card">
+        <div class="method-head">
+          <h3 style="margin:0;">e.g. JBL ProAquaTest CombiSet</h3>
+          <span class="method-price">~$35–45</span>
+        </div>
+        <p>Add reagent to your water sample drop by drop, compare the color change to a printed color chart. By far the most widely used method in the hobby — and for good reason, as discussions in forums like Flowgrow show: most experienced fishkeepers get along with it just fine.</p>
+        <div class="pros-cons">
+          <div class="col pro">
+            <h4>Pros</h4>
+            <ul>
+              <li>No smartphone or battery needed</li>
+              <li>Individual tests are cheap to restock</li>
+              <li>Well-established, huge community experience</li>
+              <li>Works for all 13 common parameters</li>
+            </ul>
+          </div>
+          <div class="col con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Color comparison is subjective — hard to distinguish similar shades (e.g. nitrite)</li>
+              <li>Even harder to read in tinted water (tannins, alder cones)</li>
+              <li>Reagents have an expiration date</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. App-scanned test strips — the hybrid</h2>
+      <div class="method-card">
+        <div class="method-head">
+          <h3 style="margin:0;">e.g. JBL ProScan</h3>
+          <span class="method-price">~$18–22 kit, ~$16 refill</span>
+        </div>
+        <p>Dip a test strip in water briefly, place it on an included reference card, photograph it with the free app — the app reads the color and evaluates it automatically. Solves exactly the problem many people have with classic drop tests: subjective color judgment.</p>
+        <div class="pros-cons">
+          <div class="col pro">
+            <h4>Pros</h4>
+            <ul>
+              <li>Fastest method, under a minute</li>
+              <li>More objective reading than the naked eye</li>
+              <li>App gives you direct recommendations</li>
+              <li>Already covers many important parameters at once</li>
+            </ul>
+          </div>
+          <div class="col con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lighting conditions when photographing affect the result</li>
+              <li>JBL itself recommends double-checking critical nitrite readings with a drop test</li>
+              <li>Refill strips are noticeably more expensive per test than individual drop tests</li>
+              <li>Unusable without a smartphone and the app</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Photometer — the precision tier</h2>
+      <div class="method-card">
+        <div class="method-head">
+          <h3 style="margin:0;">e.g. Hanna Checker HC</h3>
+          <span class="method-price">~$75 per parameter</span>
+        </div>
+        <p>An optical sensor measures the color intensity of the reagent reaction and converts it into a precise numerical value — the human eye distinguishes roughly 100 shades of color, a photometer over 1,000. <strong>Worth knowing:</strong> most single-parameter devices on the market (e.g. from Hanna Instruments) are primarily designed for saltwater/reef tanks; in freshwater, photometers are more of a niche product for enthusiasts.</p>
+        <div class="pros-cons">
+          <div class="col pro">
+            <h4>Pros</h4>
+            <ul>
+              <li>By far the most precise method</li>
+              <li>Objective, independent of ambient lighting</li>
+              <li>Worthwhile for precise dosing in high-tech planted tanks</li>
+            </ul>
+          </div>
+          <div class="col con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Usually one device per parameter — cost adds up fast across multiple readings</li>
+              <li>Overkill for most ordinary freshwater tanks</li>
+              <li>Reagents are still required, only the reading is automated</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:18px;">
+          <strong>Voice from the community:</strong> Across several Flowgrow discussion threads, the consensus is fairly consistent — for ordinary freshwater fishkeeping, a photometer is more of a "hobby within the hobby" than a necessity. Drop tests are more than enough for most people.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Which one fits you?</h2>
+      <div class="rec-grid">
+        <div class="rec-card">
+          <div class="who">Beginner, first tank</div>
+          <div class="what">Drop test kit</div>
+          <p>Covers all important readings, teaches you the underlying relationships, cheap to restock.</p>
+        </div>
+        <div class="rec-card">
+          <div class="who">Multiple tanks, limited time</div>
+          <div class="what">App-scanned strips</div>
+          <p>Fastest routine check, especially useful when you're checking several tanks regularly.</p>
+        </div>
+        <div class="rec-card">
+          <div class="who">Cycling phase / nitrite concern</div>
+          <div class="what">Drop test</div>
+          <p>For critical readings like nitrite, the slightly more accurate, well-established method is worth it — or use it as a second opinion alongside a quick test.</p>
+        </div>
+        <div class="rec-card">
+          <div class="who">High-tech planted tank</div>
+          <div class="what">Photometer (single parameters)</div>
+          <p>When exact dosing matters, investing in individual parameter devices makes sense.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Regardless of testing method: keep track over time</h2>
+      <p>Whichever method you choose, the real value comes from tracking results over time. A single reading tells you little; the <strong>trend</strong> across several weeks shows you whether something's building up before it becomes critical.</p>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Track readings, no matter which test you use</h3>
+      <p>AquaMeter tracks your measurements regardless of how you tested — with history, traffic-light evaluation, and reminders.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>Related</h2>
+    <div class="related-links">
+      <a href="/wissen/en/advisor/">Water Parameter Advisor</a>
+      <a href="/wissen/en/nitrite/">Nitrite</a>
+      <a href="/wissen/en/">Back to Knowledge Base</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/test-kit-comparison/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/legal-notice.html" style="color:var(--text-low);">Legal Notice</a><a href="/kontakt.html" style="color:var(--text-low);">Contact</a><a href="/privacy.html" style="color:var(--text-low);">Privacy</a></div></footer>
+
+</body>
+</html>
