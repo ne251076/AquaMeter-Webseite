@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Aquarium Volume Calculator: Calculate Gallons/Liters | AquaMeter</title>
+<meta name="description" content="Calculate your aquarium's gross and net volume – including water level, substrate, and decor deduction. Free, runs entirely in your browser.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/volume-calculator/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/volumenrechner/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/volume-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Aquarium Volume Calculator: Calculate Gallons/Liters">
+<meta property="og:description" content="Calculate your aquarium's gross and net volume – including water level, substrate, and decor deduction.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/volume-calculator/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aquarium Volume Calculator: Calculate Gallons/Liters">
+<meta name="twitter:description" content="Calculate your aquarium's gross and net volume, free.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Aquarium Volume Calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/en/volume-calculator/",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;
+    --bg-panel:#101b2c;
+    --bg-panel-raised:#152238;
+    --line:#233149;
+    --text-hi:#eaf3f7;
+    --text-mid:#9fb3c8;
+    --text-low:#5f7690;
+    --brand-blue:#3db8e8;
+    --brand-teal:#1fa8a0;
+    --ok:#4cae7d;
+    --warn:#f2b134;
+    --bad:#e85d4a;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),
+      var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header.site{
+    max-width:900px;margin:0 auto;padding:28px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;text-decoration:none;}
+  .back:hover{color:var(--brand-blue);}
+
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;text-decoration:none;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  .breadcrumb{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin:36px 0 14px;letter-spacing:.02em;
+  }
+  .breadcrumb a:hover{color:var(--brand-blue);}
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);
+    margin-bottom:40px;
+  }
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+
+  form{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    margin-bottom:32px;
+  }
+  .form-section-title{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);
+    text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;
+  }
+  .form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+    gap:18px;
+    margin-bottom:26px;
+  }
+  .field label{
+    display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;
+    font-weight:500;
+  }
+  .field .input-wrap{ position:relative; }
+  .field input, .field select{
+    width:100%;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:11px 44px 11px 14px;
+    color:var(--text-hi);
+    font-size:15px;
+    font-family:'IBM Plex Mono',monospace;
+    transition:border-color .15s;
+  }
+  .field select{ padding-right:14px; -webkit-appearance:none; appearance:none; }
+  .field input:focus, .field select:focus{
+    outline:none;
+    border-color:var(--brand-blue);
+  }
+  .field input::placeholder{color:var(--text-low);}
+  .field .unit{
+    position:absolute;right:14px;top:50%;transform:translateY(-50%);
+    font-size:12px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;
+    pointer-events:none;
+  }
+  .field-note{font-size:12px;color:var(--text-low);margin-top:6px;}
+
+  .divider{ height:1px; background:var(--line); margin:26px 0; }
+
+  .results{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:14px;
+    margin-top:6px;
+  }
+  .result-card{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+  }
+  .result-card.highlight{
+    border-color:rgba(61,184,232,0.4);
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.04));
+  }
+  .result-card .label{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;
+  }
+  .result-card .value{
+    font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--text-hi);
+  }
+  .result-card .value span{font-size:15px;color:var(--brand-blue);margin-left:4px;font-family:'IBM Plex Mono',monospace;}
+  .result-card .sub{font-size:12px;color:var(--text-low);margin-top:6px;}
+
+  article section{margin-bottom:44px;}
+  article h2{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin:0 0 16px;letter-spacing:-0.01em;
+  }
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+
+  .table-wrap{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;padding:14px 20px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-low);
+    border-bottom:1px solid var(--line);
+  }
+  td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--text-mid);}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{color:var(--text-hi);font-weight:500;}
+  tr.clickable{cursor:pointer;transition:background .15s;}
+  tr.clickable:hover{background:var(--bg-panel-raised);}
+
+  .callout{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brand-blue);
+    border-radius:12px;
+    padding:20px 22px;
+    font-size:14.5px;
+    color:var(--text-mid);
+    line-height:1.65;
+  }
+  .callout strong{color:var(--text-hi);}
+
+  .app-callout{
+    background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));
+    border:1px solid rgba(61,184,232,0.25);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:32px;
+  }
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--brand-blue);color:#06131d;
+    padding:11px 20px;border-radius:10px;font-weight:600;
+    white-space:nowrap;
+  }
+
+  .related{
+    margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{
+    font-size:13px;color:var(--text-mid);
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    transition:border-color .15s, color .15s;
+  }
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+
+  .unit-toggle{
+    display:inline-flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;margin-bottom:24px;
+  }
+  .unit-toggle button{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 14px;border-radius:6px;
+    background:none;border:none;color:var(--text-low);font-weight:600;letter-spacing:.03em;cursor:pointer;
+  }
+  .unit-toggle button.active{background:var(--brand-blue);color:#06131d;}
+
+  @media (max-width:560px){
+    form{padding:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/en/" class="back">← Knowledge Base</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/volumenrechner/" class="lang-link">DE</a>
+      <a href="/wissen/en/volume-calculator/" class="lang-link active">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Volume Calculator</div>
+
+  <h1>Aquarium Volume Calculator</h1>
+  <p class="subtitle">Enter your tank's dimensions and get the gross volume instantly, plus a realistic estimate of the actual water volume — accounting for water level, substrate, and decor.</p>
+  <div class="privacy-note"><span class="dot"></span> Runs entirely in your browser — nothing is stored or transmitted</div>
+
+  <div class="unit-toggle">
+    <button type="button" id="unit-cm" class="active">cm / liters</button>
+    <button type="button" id="unit-in">inches / gallons</button>
+  </div>
+
+  <form id="calc-form">
+    <div class="form-section-title">Tank dimensions (interior, if known)</div>
+    <div class="form-grid">
+      <div class="field">
+        <label for="length">Length</label>
+        <div class="input-wrap">
+          <input type="number" id="length" step="0.5" placeholder="40" inputmode="decimal">
+          <span class="unit" id="unit-length">in</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="width">Width</label>
+        <div class="input-wrap">
+          <input type="number" id="width" step="0.5" placeholder="16" inputmode="decimal">
+          <span class="unit" id="unit-width">in</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="height">Height</label>
+        <div class="input-wrap">
+          <input type="number" id="height" step="0.5" placeholder="20" inputmode="decimal">
+          <span class="unit" id="unit-height">in</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-section-title">For the net estimate (optional)</div>
+    <div class="form-grid">
+      <div class="field">
+        <label for="fill">Water level</label>
+        <div class="input-wrap">
+          <select id="fill">
+            <option value="100">Filled to the rim (100%)</option>
+            <option value="95" selected>Nearly full (95%)</option>
+            <option value="90">Typical (90%)</option>
+            <option value="80">Lower fill (80%)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="substrate">Substrate depth</label>
+        <div class="input-wrap">
+          <input type="number" id="substrate" step="0.5" placeholder="0" value="0" inputmode="decimal">
+          <span class="unit" id="unit-substrate">in</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="decor">Decor &amp; equipment</label>
+        <div class="input-wrap">
+          <select id="decor">
+            <option value="0">Minimal (0%)</option>
+            <option value="5" selected>Normal (5%)</option>
+            <option value="10">Lots of decor/hardscape (10%)</option>
+            <option value="15">Heavily decorated (15%)</option>
+          </select>
+        </div>
+        <div class="field-note">Rough estimate for rocks, driftwood, filter, heater</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="results" id="results">
+      <div class="result-card highlight">
+        <div class="label">Gross volume</div>
+        <div class="value" id="gross-value">–<span id="gross-unit">gal</span></div>
+        <div class="sub">Volume filled to the rim</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Estimated net volume</div>
+        <div class="value" id="net-value">–<span id="net-unit">gal</span></div>
+        <div class="sub">Realistic water amount</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Water weight (net)</div>
+        <div class="value" id="weight-value">–<span id="weight-unit">lb</span></div>
+        <div class="sub">Excludes tank, substrate &amp; decor</div>
+      </div>
+    </div>
+  </form>
+
+  <article>
+    <section>
+      <h2>How is this calculated?</h2>
+      <p>The <strong>gross volume</strong> comes from simply multiplying length × width × height. This is the number often printed on a tank's spec sheet — but it describes the tank filled to the very top rim, which in practice never matches the actual amount of water in the tank.</p>
+      <p>For the <strong>net volume</strong>, we subtract realistic factors: the actual water level (almost nobody fills to the rim), the volume taken up by substrate, and a rough estimate for decor, driftwood, rocks, and equipment inside the tank. The result comes much closer to the amount of water you actually move during a water change.</p>
+      <div class="callout">
+        <strong>Important:</strong> The net figure is an estimate, not an exact measurement. For precise dosing (e.g. medications), measure the actual water volume removed during a water change directly.
+      </div>
+    </section>
+
+    <section>
+      <h2>Common standard tank sizes</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Size (L×W×H)</th><th>Gross volume</th><th>Type</th></tr>
+          <tr class="clickable" data-l="24" data-b="12" data-h="12"><td>24 × 12 × 12 in</td><td>~14 gal</td><td>Beginner nano</td></tr>
+          <tr class="clickable" data-l="30" data-b="12" data-h="12"><td>30 × 12 × 12 in</td><td>~18 gal</td><td>Classic small</td></tr>
+          <tr class="clickable" data-l="36" data-b="18" data-h="16"><td>36 × 18 × 16 in</td><td>~40 gal (breeder)</td><td>Popular mid-size</td></tr>
+          <tr class="clickable" data-l="48" data-b="13" data-h="20"><td>48 × 13 × 20 in</td><td>~55 gal</td><td>Community standard</td></tr>
+          <tr class="clickable" data-l="72" data-b="18" data-h="21"><td>72 × 18 × 21 in</td><td>~125 gal</td><td>Large tank</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:14px; font-size:13px; color:var(--text-low);">Click a row to load those dimensions directly into the calculator above.</p>
+    </section>
+
+    <section>
+      <h2>Why net volume matters for water parameter care</h2>
+      <p>Many dosing recommendations — for fertilizer, medications, or water conditioners — are based on the actual water volume, not the tank's gross volume. Using the gross figure often leads to slight overdosing, which can matter especially for sensitive parameters like <a href="/wissen/en/copper/">copper</a> or <a href="/wissen/en/co2/">CO2</a>.</p>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Calculate volume once, use it forever</h3>
+      <p>In AquaMeter, you set your tank's volume once — the app uses it automatically for trends and evaluations.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>More tools</h2>
+    <div class="related-links">
+      <a href="/wissen/en/advisor/">Water Parameter Advisor</a>
+      <a href="/wissen/en/">Back to Knowledge Base</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/volume-calculator/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/legal-notice.html" style="color:var(--text-low);">Legal Notice</a><a href="/kontakt.html" style="color:var(--text-low);">Contact</a><a href="/privacy.html" style="color:var(--text-low);">Privacy</a></div></footer>
+
+<script>
+const lengthEl = document.getElementById('length');
+const widthEl = document.getElementById('width');
+const heightEl = document.getElementById('height');
+const fillEl = document.getElementById('fill');
+const substrateEl = document.getElementById('substrate');
+const decorEl = document.getElementById('decor');
+
+const grossValueEl = document.getElementById('gross-value');
+const netValueEl = document.getElementById('net-value');
+const weightValueEl = document.getElementById('weight-value');
+const grossUnitEl = document.getElementById('gross-unit');
+const netUnitEl = document.getElementById('net-unit');
+const weightUnitEl = document.getElementById('weight-unit');
+
+const btnCm = document.getElementById('unit-cm');
+const btnIn = document.getElementById('unit-in');
+const dimUnitEls = [document.getElementById('unit-length'), document.getElementById('unit-width'), document.getElementById('unit-height'), document.getElementById('unit-substrate')];
+
+let isImperial = true; // default: inches/gallons, matches EN audience expectation
+
+function fmt(n){
+  return n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+}
+
+function setUnitMode(imperial){
+  isImperial = imperial;
+  btnCm.classList.toggle('active', !imperial);
+  btnIn.classList.toggle('active', imperial);
+  dimUnitEls.forEach(el => el.textContent = imperial ? 'in' : 'cm');
+  grossUnitEl.textContent = imperial ? 'gal' : 'L';
+  netUnitEl.textContent = imperial ? 'gal' : 'L';
+  weightUnitEl.textContent = imperial ? 'lb' : 'kg';
+  calculate();
+}
+
+btnCm.addEventListener('click', () => setUnitMode(false));
+btnIn.addEventListener('click', () => setUnitMode(true));
+
+function calculate(){
+  let L = parseFloat(lengthEl.value);
+  let B = parseFloat(widthEl.value);
+  let H = parseFloat(heightEl.value);
+
+  if (!L || !B || !H || L <= 0 || B <= 0 || H <= 0) {
+    grossValueEl.innerHTML = '–<span id="gross-unit">' + (isImperial ? 'gal' : 'L') + '</span>';
+    netValueEl.innerHTML = '–<span id="net-unit">' + (isImperial ? 'gal' : 'L') + '</span>';
+    weightValueEl.innerHTML = '–<span id="weight-unit">' + (isImperial ? 'lb' : 'kg') + '</span>';
+    return;
+  }
+
+  // Convert to cm internally if in imperial mode
+  let Lcm = L, Bcm = B, Hcm = H;
+  let substrateVal = parseFloat(substrateEl.value) || 0;
+  let substrateCm = substrateVal;
+  if (isImperial) {
+    Lcm = L * 2.54;
+    Bcm = B * 2.54;
+    Hcm = H * 2.54;
+    substrateCm = substrateVal * 2.54;
+  }
+
+  const fillPct = parseFloat(fillEl.value) / 100;
+  const decorPct = parseFloat(decorEl.value) / 100;
+
+  const grossLiters = (Lcm * Bcm * Hcm) / 1000;
+  const fillHeight = Hcm * fillPct;
+  const fillLiters = (Lcm * Bcm * fillHeight) / 1000;
+  const substrateLiters = (Lcm * Bcm * Math.min(substrateCm, fillHeight)) / 1000;
+  let netLiters = fillLiters - substrateLiters;
+  netLiters = netLiters - (netLiters * decorPct);
+  if (netLiters < 0) netLiters = 0;
+
+  if (isImperial) {
+    const grossGal = grossLiters * 0.264172;
+    const netGal = netLiters * 0.264172;
+    const weightLb = netLiters * 2.20462; // 1 L water ≈ 1 kg ≈ 2.20462 lb
+    grossValueEl.innerHTML = fmt(grossGal) + '<span id="gross-unit">gal</span>';
+    netValueEl.innerHTML = fmt(netGal) + '<span id="net-unit">gal</span>';
+    weightValueEl.innerHTML = fmt(weightLb) + '<span id="weight-unit">lb</span>';
+  } else {
+    grossValueEl.innerHTML = fmt(grossLiters) + '<span id="gross-unit">L</span>';
+    netValueEl.innerHTML = fmt(netLiters) + '<span id="net-unit">L</span>';
+    weightValueEl.innerHTML = fmt(netLiters) + '<span id="weight-unit">kg</span>';
+  }
+}
+
+[lengthEl, widthEl, heightEl, fillEl, substrateEl, decorEl].forEach(el => {
+  el.addEventListener('input', calculate);
+  el.addEventListener('change', calculate);
+});
+
+document.querySelectorAll('tr.clickable').forEach(row => {
+  row.addEventListener('click', () => {
+    if (!isImperial) { setUnitMode(true); }
+    lengthEl.value = row.dataset.l;
+    widthEl.value = row.dataset.b;
+    heightEl.value = row.dataset.h;
+    calculate();
+    document.getElementById('calc-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+setUnitMode(true);
+</script>
+
+</body>
+</html>
