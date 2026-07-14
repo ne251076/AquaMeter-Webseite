@@ -195,4 +195,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url><loc>https://www.aquameter.info/wissen/de/wasserwechsel-rechner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/water-change-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/besatzrechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/stocking-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/duengerechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fertilizer-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/einfahr-checkliste/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/cycling-checklist/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/lexikon/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/glossary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/wasserhaerte-finden/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/find-your-water-hardness/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
 </urlset>

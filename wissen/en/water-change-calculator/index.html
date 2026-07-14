@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Water Change Calculator: How Much Should You Change? | AquaMeter</title>
+<meta name="description" content="Calculate what percentage of water you need to change to go from your current reading to your target reading – for nitrate, phosphate & more.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/water-change-calculator/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/wasserwechsel-rechner/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/water-change-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Water Change Calculator: How Much Should You Change?">
+<meta property="og:description" content="Calculate how much water to change to reach your target reading.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/water-change-calculator/">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Water Change Calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/en/water-change-calculator/",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Knowledge Base – Aquarium Water Parameters",
+    "url": "https://www.aquameter.info/wissen/en/"
+  },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;--bg-panel:#101b2c;--bg-panel-raised:#152238;--line:#233149;
+    --text-hi:#eaf3f7;--text-mid:#9fb3c8;--text-low:#5f7690;
+    --brand-blue:#3db8e8;--brand-teal:#1fa8a0;--ok:#4cae7d;--warn:#f2b134;--bad:#e85d4a;--radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),var(--bg-deep);color:var(--text-hi);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  header.site{max-width:900px;margin:0 auto;padding:28px 24px 0;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin:36px 0 14px;letter-spacing:.02em;}
+  .breadcrumb a:hover{color:var(--brand-blue);}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 16px;}
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin-bottom:40px;}
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+  form{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;margin-bottom:32px;}
+  .form-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(180px,1fr));gap:18px;margin-bottom:26px;}
+  .field label{display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;font-weight:500;}
+  .field .input-wrap{position:relative;}
+  .field input{width:100%;background:var(--bg-deep);border:1px solid var(--line);border-radius:10px;padding:11px 44px 11px 14px;color:var(--text-hi);font-size:15px;font-family:'IBM Plex Mono',monospace;transition:border-color .15s;}
+  .field input:focus{outline:none;border-color:var(--brand-blue);}
+  .field input::placeholder{color:var(--text-low);}
+  .field .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;pointer-events:none;}
+  .field-note{font-size:12px;color:var(--text-low);margin-top:6px;}
+  .divider{height:1px;background:var(--line);margin:26px 0;}
+  .results{display:grid;grid-template-columns:repeat(auto-fit, minmax(180px,1fr));gap:14px;margin-top:6px;}
+  .result-card{background:var(--bg-panel-raised);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .result-card.highlight{border-color:rgba(61,184,232,0.4);background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.04));}
+  .result-card .label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .result-card .value{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--text-hi);}
+  .result-card .value span{font-size:15px;color:var(--brand-blue);margin-left:4px;font-family:'IBM Plex Mono',monospace;}
+  .result-card .sub{font-size:12px;color:var(--text-low);margin-top:6px;}
+  article section{margin-bottom:44px;}
+  article h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin:0 0 16px;letter-spacing:-0.01em;}
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+  .callout{background:var(--bg-panel-raised);border:1px solid var(--line);border-left:3px solid var(--brand-blue);border-radius:12px;padding:20px 22px;font-size:14.5px;color:var(--text-mid);line-height:1.65;}
+  .callout strong{color:var(--text-hi);}
+  .app-callout{background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));border:1px solid rgba(61,184,232,0.25);border-radius:var(--radius);padding:28px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;color:var(--text-hi);}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--brand-blue);color:#06131d;padding:11px 20px;border-radius:10px;font-weight:600;white-space:nowrap;}
+  .related{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);}
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{font-size:13px;color:var(--text-mid);border:1px solid var(--line);border-radius:20px;padding:7px 14px;transition:border-color .15s, color .15s;}
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+  #status{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;display:none;}
+  #status.visible{display:block;}
+  #status.error{background:rgba(232,93,74,0.12);border:1px solid rgba(232,93,74,0.35);color:var(--bad);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/en/" class="back">← Knowledge Base</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/wasserwechsel-rechner/" class="lang-link">DE</a>
+      <a href="/wissen/en/water-change-calculator/" class="lang-link active">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Water Change Calculator</div>
+
+  <h1>Water Change Calculator</h1>
+  <p class="subtitle">What percentage of water do you need to change to go from your current reading to your target reading? Works for nitrate, phosphate, or any reading you can lower through dilution.</p>
+  <div class="privacy-note"><span class="dot"></span> Runs entirely in your browser — nothing is stored or transmitted</div>
+
+  <form id="calc-form">
+    <div class="form-grid">
+      <div class="field">
+        <label for="volume">Tank volume</label>
+        <div class="input-wrap">
+          <input type="number" id="volume" step="1" placeholder="40" inputmode="decimal">
+          <span class="unit">gal</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="current">Current reading</label>
+        <div class="input-wrap">
+          <input type="number" id="current" step="0.5" placeholder="50" inputmode="decimal">
+          <span class="unit">ppm</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="target">Target reading</label>
+        <div class="input-wrap">
+          <input type="number" id="target" step="0.5" placeholder="20" inputmode="decimal">
+          <span class="unit">ppm</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tapvalue">Reading in tap water</label>
+        <div class="input-wrap">
+          <input type="number" id="tapvalue" step="0.5" placeholder="0" value="0" inputmode="decimal">
+          <span class="unit">ppm</span>
+        </div>
+        <div class="field-note">If known, otherwise leave at 0</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="results" id="results">
+      <div class="result-card highlight">
+        <div class="label">Water change needed</div>
+        <div class="value" id="pct-value">–<span>%</span></div>
+        <div class="sub">of total volume</div>
+      </div>
+      <div class="result-card">
+        <div class="label">That's</div>
+        <div class="value" id="liter-value">–<span>gal</span></div>
+        <div class="sub">amount of water to change</div>
+      </div>
+    </div>
+    <div id="status"></div>
+  </form>
+
+  <article>
+    <section>
+      <h2>How is this calculated?</h2>
+      <p>The formula is based on simple dilution math: when part of your tank water is replaced with fresh water (usually with a lower or zero level of the substance in question), the concentration drops proportionally to the amount changed. The exact formula: <strong>Fraction to change = (Current reading − Target reading) ÷ (Current reading − Tap water reading)</strong>.</p>
+      <div class="callout">
+        <strong>Important:</strong> This calculation assumes a one-time, instant dilution. In practice, fish waste and leftover food keep producing new nitrate/phosphate continuously — the actual reading a few days later will usually be somewhat higher than what's calculated right after the water change.
+      </div>
+    </section>
+
+    <section>
+      <h2>Practical note on large water changes</h2>
+      <p>At very high starting values, the math can call for a water change well above 50% to hit your target in one step. For changes that large, caution is warranted: split it into <strong>two smaller changes over 2–3 days</strong> instead of doing it all at once — this is easier on fish and plants, which would otherwise have to adapt abruptly to sharply changed water parameters.</p>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Never miss a water change again</h3>
+      <p>AquaMeter tracks your readings automatically and reminds you when your next change is due.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>More tools</h2>
+    <div class="related-links">
+      <a href="/wissen/en/nitrate/">Nitrate</a>
+      <a href="/wissen/en/phosphate/">Phosphate</a>
+      <a href="/wissen/en/volume-calculator/">Volume Calculator</a>
+      <a href="/wissen/en/advisor/">Water Parameter Advisor</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/water-change-calculator/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/legal-notice.html" style="color:var(--text-low);">Legal Notice</a><a href="/kontakt.html" style="color:var(--text-low);">Contact</a><a href="/privacy.html" style="color:var(--text-low);">Privacy</a></div></footer>
+
+<script>
+const volumeEl = document.getElementById('volume');
+const currentEl = document.getElementById('current');
+const targetEl = document.getElementById('target');
+const tapEl = document.getElementById('tapvalue');
+const pctEl = document.getElementById('pct-value');
+const literEl = document.getElementById('liter-value');
+const statusEl = document.getElementById('status');
+
+function fmt(n){ return n.toLocaleString('en-US', { maximumFractionDigits: 1 }); }
+
+function calculate(){
+  const V = parseFloat(volumeEl.value);
+  const C0 = parseFloat(currentEl.value);
+  const Ct = parseFloat(targetEl.value);
+  const Cf = parseFloat(tapEl.value) || 0;
+
+  statusEl.className = '';
+  statusEl.textContent = '';
+
+  if (!V || !C0 || Ct === undefined || isNaN(Ct)) {
+    pctEl.innerHTML = '–<span>%</span>';
+    literEl.innerHTML = '–<span>gal</span>';
+    return;
+  }
+  if (Ct >= C0) {
+    statusEl.textContent = "Your target reading must be lower than your current reading.";
+    statusEl.className = 'visible error';
+    pctEl.innerHTML = '–<span>%</span>';
+    literEl.innerHTML = '–<span>gal</span>';
+    return;
+  }
+  if (Cf >= C0) {
+    statusEl.textContent = "Your tap water reading must be lower than your current reading.";
+    statusEl.className = 'visible error';
+    return;
+  }
+
+  let fraction = (C0 - Ct) / (C0 - Cf);
+  if (fraction > 1) fraction = 1;
+  const pct = fraction * 100;
+  const gal = fraction * V;
+
+  pctEl.innerHTML = fmt(pct) + '<span>%</span>';
+  literEl.innerHTML = fmt(gal) + '<span>gal</span>';
+
+  if (pct > 50) {
+    statusEl.textContent = "That's a large change (>50%) — see the note below, consider splitting it into two changes.";
+    statusEl.className = 'visible error';
+    statusEl.style.background = 'rgba(242,177,52,0.12)';
+    statusEl.style.borderColor = 'rgba(242,177,52,0.35)';
+    statusEl.style.color = '#f2b134';
+  }
+}
+
+[volumeEl, currentEl, targetEl, tapEl].forEach(el => {
+  el.addEventListener('input', calculate);
+});
+</script>
+
+</body>
+</html>

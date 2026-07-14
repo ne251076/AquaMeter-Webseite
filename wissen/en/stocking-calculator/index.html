@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Stocking Calculator: How Many Fish Fit in My Tank? | AquaMeter</title>
+<meta name="description" content="A rough starting estimate of how many fish fit your tank volume – based on the common rule of thumb. Free, runs in your browser.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/en/stocking-calculator/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/besatzrechner/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/stocking-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Stocking Calculator: How Many Fish Fit in My Tank?">
+<meta property="og:description" content="A rough starting estimate of how many fish fit your tank volume.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/en/stocking-calculator/">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Stocking Calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/en/stocking-calculator/",
+  "isPartOf": { "@type": "CollectionPage", "name": "Knowledge Base – Aquarium Water Parameters", "url": "https://www.aquameter.info/wissen/en/" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;--bg-panel:#101b2c;--bg-panel-raised:#152238;--line:#233149;
+    --text-hi:#eaf3f7;--text-mid:#9fb3c8;--text-low:#5f7690;
+    --brand-blue:#3db8e8;--brand-teal:#1fa8a0;--ok:#4cae7d;--warn:#f2b134;--bad:#e85d4a;--radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),var(--bg-deep);color:var(--text-hi);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  header.site{max-width:900px;margin:0 auto;padding:28px 24px 0;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin:36px 0 14px;letter-spacing:.02em;}
+  .breadcrumb a:hover{color:var(--brand-blue);}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 16px;}
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin-bottom:40px;}
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+  form{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;margin-bottom:32px;}
+  .field label{display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;font-weight:500;}
+  .field .input-wrap{position:relative;}
+  .field input, .field select{width:100%;background:var(--bg-deep);border:1px solid var(--line);border-radius:10px;padding:11px 44px 11px 14px;color:var(--text-hi);font-size:15px;font-family:'IBM Plex Mono',monospace;}
+  .field select{padding-right:14px;-webkit-appearance:none;appearance:none;}
+  .field input:focus, .field select:focus{outline:none;border-color:var(--brand-blue);}
+  .field input::placeholder{color:var(--text-low);}
+  .field .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;pointer-events:none;}
+  .tank-volume-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
+  .divider{height:1px;background:var(--line);margin:26px 0;}
+  .fish-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-bottom:12px;align-items:end;}
+  .fish-row .field{margin:0;}
+  .remove-btn{background:var(--bg-panel-raised);border:1px solid var(--line);color:var(--bad);border-radius:10px;padding:11px 14px;cursor:pointer;font-size:14px;height:44px;}
+  .remove-btn:hover{border-color:var(--bad);}
+  .add-btn{background:none;border:1px dashed var(--line);color:var(--text-mid);border-radius:10px;padding:11px 20px;cursor:pointer;font-size:14px;width:100%;margin-top:8px;font-family:'IBM Plex Mono',monospace;}
+  .add-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue);}
+  .results{margin-top:26px;}
+  .result-card{background:var(--bg-panel-raised);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .result-card.ok{border-left:3px solid var(--ok);}
+  .result-card.warn{border-left:3px solid var(--warn);}
+  .result-card.bad{border-left:3px solid var(--bad);}
+  .result-card .label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .result-card .value{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;color:var(--text-hi);margin-bottom:6px;}
+  .result-card .sub{font-size:13.5px;color:var(--text-mid);}
+  article section{margin-bottom:44px;}
+  article h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin:0 0 16px;letter-spacing:-0.01em;}
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+  .callout{background:var(--bg-panel-raised);border:1px solid var(--line);border-left:3px solid var(--brand-blue);border-radius:12px;padding:20px 22px;font-size:14.5px;color:var(--text-mid);line-height:1.65;}
+  .callout strong{color:var(--text-hi);}
+  .callout.warn{border-left-color:var(--warn);}
+  .app-callout{background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));border:1px solid rgba(61,184,232,0.25);border-radius:var(--radius);padding:28px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;color:var(--text-hi);}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--brand-blue);color:#06131d;padding:11px 20px;border-radius:10px;font-weight:600;white-space:nowrap;}
+  .related{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);}
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{font-size:13px;color:var(--text-mid);border:1px solid var(--line);border-radius:20px;padding:7px 14px;transition:border-color .15s, color .15s;}
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+  @media (max-width:560px){ .fish-row{grid-template-columns:1fr 1fr;} .fish-row .remove-btn{grid-column:span 2;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/en/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/en/" class="back">← Knowledge Base</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/besatzrechner/" class="lang-link">DE</a>
+      <a href="/wissen/en/stocking-calculator/" class="lang-link active">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/en/">Knowledge</a> / Stocking Calculator</div>
+
+  <h1>Stocking Calculator</h1>
+  <p class="subtitle">A rough first estimate of whether your planned stocking fits your tank volume — based on the common rule of thumb for peaceful schooling fish.</p>
+  <div class="privacy-note"><span class="dot"></span> Runs entirely in your browser — nothing is stored or transmitted</div>
+
+  <form id="calc-form">
+    <div class="tank-volume-row">
+      <div class="field">
+        <label for="volume">Tank volume (net)</label>
+        <div class="input-wrap">
+          <input type="number" id="volume" step="1" placeholder="40" inputmode="decimal">
+          <span class="unit">gal</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="factor">Rule of thumb</label>
+        <div class="input-wrap">
+          <select id="factor">
+            <option value="2">2 gal per inch — cautious / lots of room</option>
+            <option value="1.5" selected>1.5 gal per inch — standard</option>
+            <option value="1">1 gal per inch — compact / experienced care</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="fish-list"></div>
+    <button type="button" class="add-btn" id="add-fish">+ Add species</button>
+
+    <div class="divider"></div>
+
+    <div class="results" id="results-wrap" style="display:none;">
+      <div class="result-card" id="result-card">
+        <div class="label">Assessment</div>
+        <div class="value" id="result-value">–</div>
+        <div class="sub" id="result-sub">–</div>
+      </div>
+    </div>
+  </form>
+
+  <article>
+    <section>
+      <h2>How is this calculated?</h2>
+      <p>The rule of thumb <strong>"1–2 gallons of water per inch of adult fish length"</strong> is a rough guideline for peaceful schooling fish in a community tank — nothing more. The calculator sums, for each species entered (count × adult size), the calculated space requirement and compares it to your tank volume.</p>
+      <div class="callout warn">
+        <strong>This rule of thumb has significant limits.</strong> It accounts for neither swimming-space needs (bottom-dwelling vs. free-swimming species), territorial behavior, filtration capacity, nor actual compatibility between species. Large, territorial, or particularly sensitive fish often need considerably more room than the rule suggests. Always research the specific requirements of each species before buying.
+      </div>
+    </section>
+
+    <section>
+      <h2>What the rule of thumb does NOT replace</h2>
+      <p>Filtration capacity, regular water-parameter monitoring during acclimation, and adequate hiding spots matter at least as much as the raw gallon count. Even stocking that fits on paper can overwhelm a tank through the wrong species combination or insufficient filtration.</p>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Get a more precise estimate with the Stocking Assistant</h3>
+      <p>AquaMeter includes a stocking assistant with 30+ fish species and species-specific guidance on tank and group size.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">View App →</a>
+  </div>
+
+  <div class="related">
+    <h2>More tools</h2>
+    <div class="related-links">
+      <a href="/wissen/en/volume-calculator/">Volume Calculator</a>
+      <a href="/wissen/en/setting-up-an-aquarium/">Setting Up an Aquarium</a>
+      <a href="/wissen/en/ammonia/">Ammonia / Ammonium</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/en/stocking-calculator/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/legal-notice.html" style="color:var(--text-low);">Legal Notice</a><a href="/kontakt.html" style="color:var(--text-low);">Contact</a><a href="/privacy.html" style="color:var(--text-low);">Privacy</a></div></footer>
+
+<script>
+const volumeEl = document.getElementById('volume');
+const factorEl = document.getElementById('factor');
+const fishListEl = document.getElementById('fish-list');
+const addFishBtn = document.getElementById('add-fish');
+const resultsWrap = document.getElementById('results-wrap');
+const resultCard = document.getElementById('result-card');
+const resultValue = document.getElementById('result-value');
+const resultSub = document.getElementById('result-sub');
+
+function addFishRow(name, count, size){
+  const row = document.createElement('div');
+  row.className = 'fish-row';
+  row.innerHTML = `
+    <div class="field">
+      <label>Species (optional)</label>
+      <input type="text" class="fish-name" placeholder="e.g. Neon Tetra" value="${name || ''}">
+    </div>
+    <div class="field">
+      <label>Count</label>
+      <input type="number" class="fish-count" min="1" placeholder="10" value="${count || ''}">
+    </div>
+    <div class="field">
+      <label>Size</label>
+      <div class="input-wrap">
+        <input type="number" class="fish-size" step="0.5" placeholder="1.5" value="${size || ''}">
+        <span class="unit">in</span>
+      </div>
+    </div>
+    <button type="button" class="remove-btn">✕</button>
+  `;
+  row.querySelector('.remove-btn').addEventListener('click', () => { row.remove(); calculate(); });
+  row.querySelectorAll('input').forEach(inp => inp.addEventListener('input', calculate));
+  fishListEl.appendChild(row);
+}
+
+addFishBtn.addEventListener('click', () => addFishRow());
+volumeEl.addEventListener('input', calculate);
+factorEl.addEventListener('change', calculate);
+
+function calculate(){
+  const V = parseFloat(volumeEl.value);
+  const factor = parseFloat(factorEl.value);
+  const rows = fishListEl.querySelectorAll('.fish-row');
+
+  let totalNeed = 0;
+  let hasEntries = false;
+
+  rows.forEach(row => {
+    const count = parseFloat(row.querySelector('.fish-count').value) || 0;
+    const size = parseFloat(row.querySelector('.fish-size').value) || 0;
+    if (count > 0 && size > 0) {
+      hasEntries = true;
+      totalNeed += count * size * factor;
+    }
+  });
+
+  if (!V || !hasEntries) {
+    resultsWrap.style.display = 'none';
+    return;
+  }
+
+  resultsWrap.style.display = 'block';
+  const pct = (totalNeed / V) * 100;
+
+  resultCard.classList.remove('ok', 'warn', 'bad');
+  if (pct <= 80) {
+    resultCard.classList.add('ok');
+    resultValue.textContent = 'Good fit';
+    resultSub.textContent = `Calculated need: ${totalNeed.toLocaleString('en-US',{maximumFractionDigits:0})} gal of ${V.toLocaleString('en-US')} gal (${pct.toFixed(0)}%)`;
+  } else if (pct <= 100) {
+    resultCard.classList.add('warn');
+    resultValue.textContent = 'Borderline';
+    resultSub.textContent = `Calculated need: ${totalNeed.toLocaleString('en-US',{maximumFractionDigits:0})} gal of ${V.toLocaleString('en-US')} gal (${pct.toFixed(0)}%) — little buffer left`;
+  } else {
+    resultCard.classList.add('bad');
+    resultValue.textContent = 'Calculated overstocking';
+    resultSub.textContent = `Calculated need: ${totalNeed.toLocaleString('en-US',{maximumFractionDigits:0})} gal of ${V.toLocaleString('en-US')} gal (${pct.toFixed(0)}%) — reduce stocking or consider a larger tank`;
+  }
+}
+
+addFishRow();
+addFishRow();
+</script>
+
+</body>
+</html>

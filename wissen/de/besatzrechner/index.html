@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Besatzrechner: Wie viele Fische passen in mein Aquarium? | AquaMeter</title>
+<meta name="description" content="Grobe Orientierung, wie viele Fische zu deinem Beckenvolumen passen – nach der gängigen Faustregel. Kostenlos, läuft im Browser.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/besatzrechner/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/besatzrechner/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/stocking-calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Besatzrechner: Wie viele Fische passen in mein Aquarium?">
+<meta property="og:description" content="Grobe Orientierung, wie viele Fische zu deinem Beckenvolumen passen.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/besatzrechner/">
+<meta property="og:locale" content="de_DE">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Besatzrechner",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/de/besatzrechner/",
+  "isPartOf": { "@type": "CollectionPage", "name": "Wissensdatenbank – Wasserwerte im Aquarium", "url": "https://www.aquameter.info/wissen/de/" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;--bg-panel:#101b2c;--bg-panel-raised:#152238;--line:#233149;
+    --text-hi:#eaf3f7;--text-mid:#9fb3c8;--text-low:#5f7690;
+    --brand-blue:#3db8e8;--brand-teal:#1fa8a0;--ok:#4cae7d;--warn:#f2b134;--bad:#e85d4a;--radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),var(--bg-deep);color:var(--text-hi);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  header.site{max-width:900px;margin:0 auto;padding:28px 24px 0;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin:36px 0 14px;letter-spacing:.02em;}
+  .breadcrumb a:hover{color:var(--brand-blue);}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 16px;}
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin-bottom:40px;}
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+  form{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;margin-bottom:32px;}
+  .field label{display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;font-weight:500;}
+  .field .input-wrap{position:relative;}
+  .field input, .field select{width:100%;background:var(--bg-deep);border:1px solid var(--line);border-radius:10px;padding:11px 44px 11px 14px;color:var(--text-hi);font-size:15px;font-family:'IBM Plex Mono',monospace;}
+  .field select{padding-right:14px;-webkit-appearance:none;appearance:none;}
+  .field input:focus, .field select:focus{outline:none;border-color:var(--brand-blue);}
+  .field input::placeholder{color:var(--text-low);}
+  .field .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;pointer-events:none;}
+  .tank-volume-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
+  .divider{height:1px;background:var(--line);margin:26px 0;}
+  .fish-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-bottom:12px;align-items:end;}
+  .fish-row .field{margin:0;}
+  .remove-btn{background:var(--bg-panel-raised);border:1px solid var(--line);color:var(--bad);border-radius:10px;padding:11px 14px;cursor:pointer;font-size:14px;height:44px;}
+  .remove-btn:hover{border-color:var(--bad);}
+  .add-btn{background:none;border:1px dashed var(--line);color:var(--text-mid);border-radius:10px;padding:11px 20px;cursor:pointer;font-size:14px;width:100%;margin-top:8px;font-family:'IBM Plex Mono',monospace;}
+  .add-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue);}
+  .results{margin-top:26px;}
+  .result-card{background:var(--bg-panel-raised);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .result-card.ok{border-left:3px solid var(--ok);}
+  .result-card.warn{border-left:3px solid var(--warn);}
+  .result-card.bad{border-left:3px solid var(--bad);}
+  .result-card .label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .result-card .value{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;color:var(--text-hi);margin-bottom:6px;}
+  .result-card .sub{font-size:13.5px;color:var(--text-mid);}
+  article section{margin-bottom:44px;}
+  article h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin:0 0 16px;letter-spacing:-0.01em;}
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+  .callout{background:var(--bg-panel-raised);border:1px solid var(--line);border-left:3px solid var(--brand-blue);border-radius:12px;padding:20px 22px;font-size:14.5px;color:var(--text-mid);line-height:1.65;}
+  .callout strong{color:var(--text-hi);}
+  .callout.warn{border-left-color:var(--warn);}
+  .app-callout{background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));border:1px solid rgba(61,184,232,0.25);border-radius:var(--radius);padding:28px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;color:var(--text-hi);}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--brand-blue);color:#06131d;padding:11px 20px;border-radius:10px;font-weight:600;white-space:nowrap;}
+  .related{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);}
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{font-size:13px;color:var(--text-mid);border:1px solid var(--line);border-radius:20px;padding:7px 14px;transition:border-color .15s, color .15s;}
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+  @media (max-width:560px){ .fish-row{grid-template-columns:1fr 1fr;} .fish-row .remove-btn{grid-column:span 2;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/besatzrechner/" class="lang-link active">DE</a>
+      <a href="/wissen/en/stocking-calculator/" class="lang-link">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Besatzrechner</div>
+
+  <h1>Besatzrechner</h1>
+  <p class="subtitle">Eine grobe erste Orientierung, ob dein geplanter Besatz zu deinem Beckenvolumen passt — basierend auf der gängigen Faustregel für friedliche Schwarmfische.</p>
+  <div class="privacy-note"><span class="dot"></span> Läuft komplett in deinem Browser — nichts wird gespeichert oder übertragen</div>
+
+  <form id="calc-form">
+    <div class="tank-volume-row">
+      <div class="field">
+        <label for="volume">Beckenvolumen (netto)</label>
+        <div class="input-wrap">
+          <input type="number" id="volume" step="1" placeholder="160" inputmode="decimal">
+          <span class="unit">Liter</span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="factor">Faustregel</label>
+        <div class="input-wrap">
+          <select id="factor">
+            <option value="2">2 L pro cm — vorsichtig / viel Platz</option>
+            <option value="1.5" selected>1,5 L pro cm — Standard</option>
+            <option value="1">1 L pro cm — kompakt / erfahrene Pflege</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="fish-list"></div>
+    <button type="button" class="add-btn" id="add-fish">+ Fischart hinzufügen</button>
+
+    <div class="divider"></div>
+
+    <div class="results" id="results-wrap" style="display:none;">
+      <div class="result-card" id="result-card">
+        <div class="label">Einschätzung</div>
+        <div class="value" id="result-value">–</div>
+        <div class="sub" id="result-sub">–</div>
+      </div>
+    </div>
+  </form>
+
+  <article>
+    <section>
+      <h2>Wie wird gerechnet?</h2>
+      <p>Die Faustregel <strong>"1–2 Liter Wasser pro Zentimeter erwachsener Fischgröße"</strong> ist ein grober Orientierungswert für friedliche Schwarmfische im Gesellschaftsbecken — mehr nicht. Der Rechner summiert für jede eingetragene Art (Anzahl × erwachsene Größe) den rechnerischen Platzbedarf und vergleicht ihn mit deinem Beckenvolumen.</p>
+      <div class="callout warn">
+        <strong>Diese Faustregel hat erhebliche Grenzen.</strong> Sie berücksichtigt weder Schwimmraum-Bedarf (bodenorientierte vs. frei schwimmende Arten), Revierverhalten, Filterleistung noch die tatsächliche Verträglichkeit einzelner Arten untereinander. Große, territoriale oder besonders empfindliche Fische brauchen oft deutlich mehr Platz, als die Faustregel vorschlägt. Informiere dich vor dem Kauf immer zusätzlich über die spezifischen Bedürfnisse jeder einzelnen Art.
+      </div>
+    </section>
+
+    <section>
+      <h2>Was die Faustregel NICHT ersetzt</h2>
+      <p>Filterleistung, regelmäßige Wasserwerte-Kontrolle während der Eingewöhnung und ausreichend Versteckmöglichkeiten sind mindestens genauso wichtig wie die reine Literzahl. Auch bei rechnerisch "passendem" Besatz kann ein Becken durch falsche Artenkombination oder unzureichende Filterung überlastet sein.</p>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Genauere Einschätzung mit dem Besatz-Assistenten</h3>
+      <p>AquaMeter enthält einen Besatz-Assistenten mit über 30 Fischarten und artspezifischen Richtwerten zu Beckengröße und Gruppengröße.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+
+  <div class="related">
+    <h2>Weitere Tools</h2>
+    <div class="related-links">
+      <a href="/wissen/de/volumenrechner/">Volumenrechner</a>
+      <a href="/wissen/de/aquarium-einrichten/">Aquarium einrichten</a>
+      <a href="/wissen/de/ammonium/">Ammonium / Ammoniak</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/besatzrechner/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/impressum.html" style="color:var(--text-low);">Impressum</a><a href="/kontakt.html" style="color:var(--text-low);">Kontakt</a><a href="/datenschutz.html" style="color:var(--text-low);">Datenschutz</a></div></footer>
+
+<script>
+const volumeEl = document.getElementById('volume');
+const factorEl = document.getElementById('factor');
+const fishListEl = document.getElementById('fish-list');
+const addFishBtn = document.getElementById('add-fish');
+const resultsWrap = document.getElementById('results-wrap');
+const resultCard = document.getElementById('result-card');
+const resultValue = document.getElementById('result-value');
+const resultSub = document.getElementById('result-sub');
+
+let rowCount = 0;
+
+function addFishRow(name, count, size){
+  rowCount++;
+  const row = document.createElement('div');
+  row.className = 'fish-row';
+  row.innerHTML = `
+    <div class="field">
+      <label>Art (optional)</label>
+      <input type="text" class="fish-name" placeholder="z. B. Neonsalmler" value="${name || ''}">
+    </div>
+    <div class="field">
+      <label>Anzahl</label>
+      <input type="number" class="fish-count" min="1" placeholder="10" value="${count || ''}">
+    </div>
+    <div class="field">
+      <label>Größe</label>
+      <div class="input-wrap">
+        <input type="number" class="fish-size" step="0.5" placeholder="4" value="${size || ''}">
+        <span class="unit">cm</span>
+      </div>
+    </div>
+    <button type="button" class="remove-btn">✕</button>
+  `;
+  row.querySelector('.remove-btn').addEventListener('click', () => { row.remove(); calculate(); });
+  row.querySelectorAll('input').forEach(inp => inp.addEventListener('input', calculate));
+  fishListEl.appendChild(row);
+}
+
+addFishBtn.addEventListener('click', () => addFishRow());
+volumeEl.addEventListener('input', calculate);
+factorEl.addEventListener('change', calculate);
+
+function calculate(){
+  const V = parseFloat(volumeEl.value);
+  const factor = parseFloat(factorEl.value);
+  const rows = fishListEl.querySelectorAll('.fish-row');
+
+  let totalNeed = 0;
+  let hasEntries = false;
+
+  rows.forEach(row => {
+    const count = parseFloat(row.querySelector('.fish-count').value) || 0;
+    const size = parseFloat(row.querySelector('.fish-size').value) || 0;
+    if (count > 0 && size > 0) {
+      hasEntries = true;
+      totalNeed += count * size * factor;
+    }
+  });
+
+  if (!V || !hasEntries) {
+    resultsWrap.style.display = 'none';
+    return;
+  }
+
+  resultsWrap.style.display = 'block';
+  const pct = (totalNeed / V) * 100;
+
+  resultCard.classList.remove('ok', 'warn', 'bad');
+  if (pct <= 80) {
+    resultCard.classList.add('ok');
+    resultValue.textContent = 'Passt gut';
+    resultSub.textContent = `Rechnerischer Bedarf: ${totalNeed.toLocaleString('de-DE',{maximumFractionDigits:0})} L von ${V.toLocaleString('de-DE')} L (${pct.toFixed(0)}%)`;
+  } else if (pct <= 100) {
+    resultCard.classList.add('warn');
+    resultValue.textContent = 'Grenzwertig';
+    resultSub.textContent = `Rechnerischer Bedarf: ${totalNeed.toLocaleString('de-DE',{maximumFractionDigits:0})} L von ${V.toLocaleString('de-DE')} L (${pct.toFixed(0)}%) — wenig Puffer nach oben`;
+  } else {
+    resultCard.classList.add('bad');
+    resultValue.textContent = 'Rechnerisch überbesetzt';
+    resultSub.textContent = `Rechnerischer Bedarf: ${totalNeed.toLocaleString('de-DE',{maximumFractionDigits:0})} L von ${V.toLocaleString('de-DE')} L (${pct.toFixed(0)}%) — Besatz reduzieren oder größeres Becken erwägen`;
+  }
+}
+
+// Start with 2 empty rows
+addFishRow();
+addFishRow();
+</script>
+
+</body>
+</html>

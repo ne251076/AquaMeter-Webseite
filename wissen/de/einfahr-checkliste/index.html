@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Einfahr-Checkliste: Schritt für Schritt durch die Einlaufphase | AquaMeter</title>
+<meta name="description" content="Interaktive Checkliste für die Einlaufphase deines neuen Aquariums – abhakbar, mit Tag-Zähler. Kostenlos, läuft im Browser.">
+<link rel="canonical" href="https://www.aquameter.info/wissen/de/einfahr-checkliste/">
+<link rel="alternate" hreflang="de" href="https://www.aquameter.info/wissen/de/einfahr-checkliste/">
+<link rel="alternate" hreflang="en" href="https://www.aquameter.info/wissen/en/cycling-checklist/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaMeter">
+<meta property="og:title" content="Einfahr-Checkliste: Schritt für Schritt durch die Einlaufphase">
+<meta property="og:description" content="Interaktive Checkliste für die Einlaufphase deines neuen Aquariums.">
+<meta property="og:url" content="https://www.aquameter.info/wissen/de/einfahr-checkliste/">
+<meta property="og:locale" content="de_DE">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AquaMeter Einfahr-Checkliste",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://www.aquameter.info/wissen/de/einfahr-checkliste/",
+  "isPartOf": { "@type": "CollectionPage", "name": "Wissensdatenbank – Wasserwerte im Aquarium", "url": "https://www.aquameter.info/wissen/de/" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0a121e;--bg-panel:#101b2c;--bg-panel-raised:#152238;--line:#233149;
+    --text-hi:#eaf3f7;--text-mid:#9fb3c8;--text-low:#5f7690;
+    --brand-blue:#3db8e8;--brand-teal:#1fa8a0;--ok:#4cae7d;--warn:#f2b134;--bad:#e85d4a;--radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(61,184,232,0.14), transparent 60%),var(--bg-deep);color:var(--text-hi);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  header.site{max-width:900px;margin:0 auto;padding:28px 24px 0;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand .drop{width:30px;height:30px;border-radius:9px;background:linear-gradient(160deg,#111c2c,#0a121e);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);}
+  .brand .drop svg{width:16px;height:16px;}
+  .back{font-size:13px;color:var(--text-mid);font-family:'IBM Plex Mono',monospace;}
+  .back:hover{color:var(--brand-blue);}
+  .lang-switch{display:flex;gap:2px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-low);font-weight:600;letter-spacing:.03em;}
+  .lang-link.active{background:var(--brand-blue);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text-hi);}
+  main{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin:36px 0 14px;letter-spacing:.02em;}
+  .breadcrumb a:hover{color:var(--brand-blue);}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,4.5vw,44px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 16px;}
+  .subtitle{font-size:17px;color:var(--text-mid);line-height:1.6;max-width:60ch;margin:0 0 12px;}
+  .privacy-note{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);margin-bottom:32px;}
+  .privacy-note .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+
+  .date-bar{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 28px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;
+  }
+  .date-bar label{display:block;font-size:13px;color:var(--text-mid);margin-bottom:8px;font-weight:500;}
+  .date-bar input{background:var(--bg-deep);border:1px solid var(--line);border-radius:10px;padding:11px 14px;color:var(--text-hi);font-size:15px;font-family:'IBM Plex Mono',monospace;}
+  .date-bar input:focus{outline:none;border-color:var(--brand-blue);}
+  .day-counter{text-align:right;}
+  .day-counter .num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:600;color:var(--brand-blue);}
+  .day-counter .label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-low);text-transform:uppercase;letter-spacing:.06em;}
+
+  .progress-bar{
+    height:8px;background:var(--bg-panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:32px;
+  }
+  .progress-fill{height:100%;background:var(--brand-blue);border-radius:20px;transition:width .3s ease;width:0%;}
+
+  .phase{margin-bottom:32px;}
+  .phase-head{
+    display:flex;align-items:center;gap:12px;margin-bottom:14px;
+  }
+  .phase-badge{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brand-blue);
+    background:rgba(61,184,232,0.12);border:1px solid rgba(61,184,232,0.3);
+    padding:4px 12px;border-radius:20px;white-space:nowrap;
+  }
+  .phase-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;}
+  .phase.active .phase-badge{background:var(--brand-blue);color:#06131d;}
+
+  .task-list{display:flex;flex-direction:column;gap:8px;}
+  .task{
+    display:flex;align-items:flex-start;gap:14px;
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;cursor:pointer;transition:border-color .15s;
+  }
+  .task:hover{border-color:rgba(61,184,232,0.4);}
+  .task input[type="checkbox"]{
+    width:20px;height:20px;flex-shrink:0;margin-top:2px;accent-color:var(--brand-blue);cursor:pointer;
+  }
+  .task.checked{opacity:0.5;}
+  .task.checked .task-text{text-decoration:line-through;}
+  .task-text{font-size:14.5px;color:var(--text-mid);line-height:1.5;}
+  .task-text strong{color:var(--text-hi);}
+
+  article section{margin-top:56px;margin-bottom:44px;}
+  article h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin:0 0 16px;letter-spacing:-0.01em;}
+  article p{font-size:15.5px;line-height:1.75;color:var(--text-mid);margin:0 0 14px;}
+  article strong{color:var(--text-hi);font-weight:600;}
+  .callout{background:var(--bg-panel-raised);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:12px;padding:20px 22px;font-size:14.5px;color:var(--text-mid);line-height:1.65;}
+  .callout strong{color:var(--text-hi);}
+  .app-callout{background:linear-gradient(135deg, rgba(61,184,232,0.10), rgba(31,168,160,0.06));border:1px solid rgba(61,184,232,0.25);border-radius:var(--radius);padding:28px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  .app-callout .txt h3{font-family:'Space Grotesk',sans-serif;font-size:18px;margin:0 0 6px;color:var(--text-hi);}
+  .app-callout .txt p{margin:0;font-size:14px;color:var(--text-mid);max-width:44ch;}
+  .app-callout .cta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--brand-blue);color:#06131d;padding:11px 20px;border-radius:10px;font-weight:600;white-space:nowrap;}
+  .related{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);}
+  .related h2{font-size:16px;color:var(--text-low);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-weight:500;}
+  .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .related-links a{font-size:13px;color:var(--text-mid);border:1px solid var(--line);border-radius:20px;padding:7px 14px;transition:border-color .15s, color .15s;}
+  .related-links a:hover{border-color:rgba(61,184,232,0.5);color:var(--brand-blue);}
+  footer.site{max-width:900px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);}
+  .reset-link{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-low);text-decoration:underline;cursor:pointer;background:none;border:none;padding:0;margin-top:8px;}
+  .reset-link:hover{color:var(--bad);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand">
+    <span class="drop"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 11 12 2 12 2Z" fill="#3db8e8"/></svg></span>
+    AquaMeter
+  </a>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <a href="/wissen/de/" class="back">← Wissensdatenbank</a>
+    <div class="lang-switch">
+      <a href="/wissen/de/einfahr-checkliste/" class="lang-link active">DE</a>
+      <a href="/wissen/en/cycling-checklist/" class="lang-link">EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="/wissen/de/">Wissen</a> / Einfahr-Checkliste</div>
+
+  <h1>Einfahr-Checkliste</h1>
+  <p class="subtitle">Schritt für Schritt durch die Einlaufphase deines neuen Aquariums — hak ab, was du erledigt hast, und behalte den Überblick, in welcher Phase du gerade bist.</p>
+  <div class="privacy-note"><span class="dot"></span> Läuft komplett in deinem Browser — dein Fortschritt wird nur lokal auf diesem Gerät gespeichert</div>
+
+  <div class="date-bar">
+    <div>
+      <label for="start-date">Becken eingerichtet am</label>
+      <input type="date" id="start-date">
+    </div>
+    <div class="day-counter">
+      <div class="num" id="day-count">–</div>
+      <div class="label">Tag der Einlaufphase</div>
+    </div>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div id="phases"></div>
+
+  <button class="reset-link" id="reset-btn">Checkliste zurücksetzen</button>
+
+  <article>
+    <section>
+      <h2>Warum die Reihenfolge wichtig ist</h2>
+      <p>Die Einlaufphase läuft in zwei aufeinanderfolgenden Wellen ab: Zuerst siedeln sich Bakterien an, die Ammonium abbauen, danach — meist verzögert — die, die das dabei entstehende Nitrit weiter zu Nitrat abbauen. Genau diese Verzögerung sorgt für den gefürchteten "Nitrit-Peak" in Woche 2–4, oft genau dann, wenn Einsteiger sich schon in Sicherheit wiegen, weil Ammonium bereits auf 0 gefallen ist.</p>
+      <div class="callout">
+        <strong>Die Checkliste ist eine Orientierung, kein starrer Fahrplan.</strong> Je nach Beckengröße, Starterbakterien und Wassertemperatur kann die Einlaufphase kürzer oder länger dauern. Miss regelmäßig und richte dich nach den tatsächlichen Werten, nicht nach dem Kalender.
+      </div>
+    </section>
+  </article>
+
+  <div class="app-callout">
+    <div class="txt">
+      <h3>Automatisch durch die Einlaufphase begleitet</h3>
+      <p>AquaMeter trackt Ammonium und Nitrit automatisch mit Ampel-Bewertung — kein manuelles Abhaken nötig.</p>
+    </div>
+    <a class="cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">App ansehen →</a>
+  </div>
+
+  <div class="related">
+    <h2>Weiterführend</h2>
+    <div class="related-links">
+      <a href="/wissen/de/ammonium/">Ammonium / Ammoniak</a>
+      <a href="/wissen/de/nitrit/">Nitrit</a>
+      <a href="/wissen/de/aquarium-einrichten/">Aquarium einrichten</a>
+      <a href="/wissen/de/berater/">Wasserwerte-Berater</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">© AquaMeter — /wissen/de/einfahr-checkliste/<br><div style="display:flex;gap:14px;margin-top:10px;"><a href="/impressum.html" style="color:var(--text-low);">Impressum</a><a href="/kontakt.html" style="color:var(--text-low);">Kontakt</a><a href="/datenschutz.html" style="color:var(--text-low);">Datenschutz</a></div></footer>
+
+<script>
+const PHASES = [
+  {
+    range: "Tag 1", dayStart: 1, dayEnd: 1,
+    title: "Direkt nach dem Einrichten",
+    tasks: [
+      "Technik läuft (Filter, Heizer, Beleuchtung)",
+      "Temperatur im Zielbereich (meist 24–26°C)",
+      "Optional: Starterbakterien zugegeben",
+      "<strong>Noch keine Fische einsetzen</strong>"
+    ]
+  },
+  {
+    range: "Tag 2–7", dayStart: 2, dayEnd: 7,
+    title: "Erste Woche — Ammonium-Phase",
+    tasks: [
+      "Ammonium alle 2–3 Tage testen",
+      "Bei messbarem Ammonium: 30–50% Wasserwechsel",
+      "Nicht füttern (noch keine Fische)",
+      "Filter NICHT reinigen"
+    ]
+  },
+  {
+    range: "Tag 8–21", dayStart: 8, dayEnd: 21,
+    title: "Woche 2–3 — Nitrit-Peak wahrscheinlich",
+    tasks: [
+      "Ammonium UND Nitrit alle 2–3 Tage testen",
+      "Bei Nitrit-Anstieg: nicht beunruhigen, das ist normal",
+      "Bei hohem Nitrit: 30–50% Wasserwechsel, ggf. Salz als Notmaßnahme",
+      "Weiterhin nicht füttern, Filter nicht reinigen"
+    ]
+  },
+  {
+    range: "Tag 22–42", dayStart: 22, dayEnd: 42,
+    title: "Woche 4–6 — Stabilisierung",
+    tasks: [
+      "Ammonium und Nitrit bleiben mehrere Tage konstant bei 0",
+      "Nitrat ist messbar (Zeichen, dass der Kreislauf funktioniert)",
+      "Erste, wenige und robuste Fische einsetzen",
+      "Nach Besatz: weiterhin engmaschig testen"
+    ]
+  },
+  {
+    range: "Ab Tag 43", dayStart: 43, dayEnd: 9999,
+    title: "Eingefahren — Routine beginnt",
+    tasks: [
+      "Wöchentlich 20–30% Wasser wechseln",
+      "Regelmäßig Wasserwerte kontrollieren",
+      "Besatz nach und nach langsam erweitern, falls gewünscht",
+      "Filter jetzt vorsichtig alle paar Wochen reinigen (mit Beckenwasser, nicht Leitungswasser)"
+    ]
+  }
+];
+
+const STORAGE_KEY = 'aquameter_einfahr_checkliste';
+
+function loadState(){
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : { startDate: '', checked: {} };
+  } catch(e) {
+    return { startDate: '', checked: {} };
+  }
+}
+
+function saveState(state){
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+let state = loadState();
+
+const startDateEl = document.getElementById('start-date');
+const dayCountEl = document.getElementById('day-count');
+const progressFillEl = document.getElementById('progress-fill');
+const phasesEl = document.getElementById('phases');
+const resetBtn = document.getElementById('reset-btn');
+
+if (state.startDate) startDateEl.value = state.startDate;
+
+function getCurrentDay(){
+  if (!state.startDate) return null;
+  const start = new Date(state.startDate);
+  const now = new Date();
+  const diffTime = now - start;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+  return diffDays > 0 ? diffDays : null;
+}
+
+function render(){
+  const currentDay = getCurrentDay();
+  dayCountEl.textContent = currentDay ? `Tag ${currentDay}` : '–';
+
+  let totalTasks = 0;
+  let checkedTasks = 0;
+
+  phasesEl.innerHTML = '';
+
+  PHASES.forEach((phase, pIdx) => {
+    const isActive = currentDay && currentDay >= phase.dayStart && currentDay <= phase.dayEnd;
+    const phaseDiv = document.createElement('div');
+    phaseDiv.className = 'phase' + (isActive ? ' active' : '');
+
+    const head = document.createElement('div');
+    head.className = 'phase-head';
+    head.innerHTML = `<span class="phase-badge">${phase.range}</span><span class="phase-title">${phase.title}</span>`;
+    phaseDiv.appendChild(head);
+
+    const list = document.createElement('div');
+    list.className = 'task-list';
+
+    phase.tasks.forEach((taskText, tIdx) => {
+      totalTasks++;
+      const key = `${pIdx}-${tIdx}`;
+      const isChecked = !!state.checked[key];
+      if (isChecked) checkedTasks++;
+
+      const taskDiv = document.createElement('label');
+      taskDiv.className = 'task' + (isChecked ? ' checked' : '');
+      taskDiv.innerHTML = `
+        <input type="checkbox" ${isChecked ? 'checked' : ''} data-key="${key}">
+        <span class="task-text">${taskText}</span>
+      `;
+      taskDiv.querySelector('input').addEventListener('change', (e) => {
+        state.checked[key] = e.target.checked;
+        saveState(state);
+        render();
+      });
+      list.appendChild(taskDiv);
+    });
+
+    phaseDiv.appendChild(list);
+    phasesEl.appendChild(phaseDiv);
+  });
+
+  const pct = totalTasks > 0 ? (checkedTasks / totalTasks) * 100 : 0;
+  progressFillEl.style.width = pct + '%';
+}
+
+startDateEl.addEventListener('change', () => {
+  state.startDate = startDateEl.value;
+  saveState(state);
+  render();
+});
+
+resetBtn.addEventListener('click', () => {
+  if (confirm('Checkliste wirklich zurücksetzen? Alle Häkchen und das Startdatum werden gelöscht.')) {
+    state = { startDate: '', checked: {} };
+    saveState(state);
+    startDateEl.value = '';
+    render();
+  }
+});
+
+render();
+</script>
+
+</body>
+</html>
