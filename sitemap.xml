@@ -211,4 +211,18 @@
   <url><loc>https://www.aquameter.info/wissen/en/cleaning-a-filter/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/de/nitritpeak/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://www.aquameter.info/wissen/en/nitrite-spike/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/neonsalmler/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/neon-tetra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/skalar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/angelfish/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/antennenwels/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/bristlenose-pleco/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/zwergbuntbarsch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/dwarf-cichlid/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/fische/kampffisch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/fish/betta/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
