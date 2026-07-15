@@ -99,6 +99,17 @@
   .lang-link:hover:not(.active){color:var(--text);}
 
   /* ---------- Hero + caustics signature ---------- */
+  .section-gradient{
+    position:relative; isolation:isolate;
+  }
+  .section-gradient::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 50% 45% at 20% 15%, rgba(61,184,232,0.12), transparent 60%),
+      radial-gradient(ellipse 45% 40% at 80% 75%, rgba(61,184,232,0.09), transparent 60%),
+      var(--bg-2);
+  }
+
   .hero{
     position:relative;
     padding:96px 0 60px;
@@ -320,7 +331,7 @@
   </div>
 </section>
 
-<section id="showcase">
+<section id="showcase" class="section-gradient">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">A closer look</div>
@@ -372,7 +383,7 @@
   </div>
 </section>
 
-<section id="languages">
+<section id="languages" class="section-gradient">
   <div class="wrap">
     <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
       <div class="eyebrow" style="margin:0 auto 16px;">Ready for the world</div>
