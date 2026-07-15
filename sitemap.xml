@@ -207,4 +207,6 @@
   <url><loc>https://www.aquameter.info/wissen/en/glossary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/de/wasserhaerte-finden/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.aquameter.info/wissen/en/find-your-water-hardness/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/filter-reinigen/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/cleaning-a-filter/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
