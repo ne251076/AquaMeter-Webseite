@@ -235,4 +235,12 @@
   <url><loc>https://www.aquameter.info/wissen/en/plants/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/de/pflanzen/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/en/plants/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/diseases/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/weisspuenktchenkrankheit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/diseases/ich/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/flossenfaeule/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/diseases/fin-rot/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/bauchwassersucht/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/diseases/dropsy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
