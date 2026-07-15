@@ -225,4 +225,14 @@
   <url><loc>https://www.aquameter.info/wissen/en/fish/dwarf-cichlid/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/de/fische/kampffisch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/en/fish/betta/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/plants/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/plants/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/javafarn/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/plants/java-fern/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/plants/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/plants/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
