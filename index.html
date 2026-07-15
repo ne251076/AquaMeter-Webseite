@@ -90,6 +90,11 @@
   }
   .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 20px rgba(61,184,232,0.35); }
 
+  .lang-switch{display:flex;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:3px;}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-muted);font-weight:600;letter-spacing:.03em;text-decoration:none;}
+  .lang-link.active{background:var(--accent);color:#06131d;}
+  .lang-link:hover:not(.active){color:var(--text);}
+
   /* ---------- Hero + caustics signature ---------- */
   .hero{
     position:relative;
@@ -241,7 +246,10 @@
   <div class="wrap">
     <div class="wordmark">Aqua<span>Meter</span></div>
     <div style="display:flex; align-items:center; gap:22px;">
-      <a href="/en/" style="font-size:13px; color:var(--text-muted); text-decoration:none;">EN</a>
+      <div class="lang-switch">
+        <a href="/" class="lang-link active">DE</a>
+        <a href="/en/" class="lang-link">EN</a>
+      </div>
       <a href="/wissen/de/" style="font-size:14px; color:var(--text-muted); text-decoration:none;">Wissen</a>
       <a class="nav-cta" href="https://apps.apple.com/de/app/aquameter-aquarium-tracker/id6789518225">Jetzt im App Store</a>
     </div>
