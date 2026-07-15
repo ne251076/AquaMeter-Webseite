@@ -209,4 +209,6 @@
   <url><loc>https://www.aquameter.info/wissen/en/find-your-water-hardness/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://www.aquameter.info/wissen/de/filter-reinigen/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aquameter.info/wissen/en/cleaning-a-filter/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/de/nitritpeak/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.aquameter.info/wissen/en/nitrite-spike/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 </urlset>
