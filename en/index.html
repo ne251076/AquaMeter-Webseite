@@ -92,6 +92,12 @@
     transition: transform .15s ease, box-shadow .15s ease;
   }
   .nav-cta:hover{ transform:translateY(-1px); box-shadow:0 6px 20px rgba(61,184,232,0.35); }
+  .nav-cta-secondary{
+    background:transparent; color:var(--accent); font-weight:600; font-size:14px; font-family:'IBM Plex Mono',monospace;
+    padding:8px 17px; border-radius:10px; text-decoration:none; border:1px solid rgba(61,184,232,0.4);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .nav-cta-secondary:hover{ transform:translateY(-1px); border-color:var(--accent); }
 
   .lang-switch{display:flex;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:3px;}
   .lang-link{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;color:var(--text-muted);font-weight:600;letter-spacing:.03em;text-decoration:none;}
@@ -240,6 +246,11 @@
   footer .links a:hover{ color:var(--text); }
   footer .copyright{ font-size:13px; color:var(--text-muted); width:100%; margin-top:24px; }
 
+  @media (max-width: 640px){
+    nav .wrap > div:last-child{ gap:10px !important; }
+    nav .wrap a[href*="wissen"], nav .wrap a[href*="Wissen"]{ display:none; }
+    .nav-cta, .nav-cta-secondary{ padding:8px 12px !important; font-size:12.5px !important; }
+  }
   @media (max-width: 860px){
     .hero-grid{ grid-template-columns:1fr; }
     .hero{ padding:64px 0 40px; text-align:center; }
@@ -266,6 +277,7 @@
         <a href="/en/" class="lang-link active">EN</a>
       </div>
       <a href="/wissen/en/" style="font-size:14px; color:var(--text-muted); text-decoration:none;">Knowledge</a>
+      <a class="nav-cta-secondary" href="/app/">Web Login</a>
       <a class="nav-cta" href="https://apps.apple.com/app/aquameter-aquarium-tracker/id6789518225">Get it on the App Store</a>
     </div>
   </div>
