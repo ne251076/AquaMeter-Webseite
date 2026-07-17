@@ -53,6 +53,11 @@
     --surface-translucent: rgba(255,255,255,0.92);
   }
   *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  /* Scrollbalken komplett unsichtbar, Scrollen bleibt weiterhin möglich */
+  ::-webkit-scrollbar{ display:none; width:0; height:0; }
+  html{ scrollbar-width:none; -ms-overflow-style:none; }
+  *{ scrollbar-width:none; -ms-overflow-style:none; }
   html,body{
     height:100%;
     overflow:hidden;           /* Verhindert, dass das gesamte Dokument scrollt/bounced */
@@ -204,11 +209,14 @@
     display:flex; align-items:flex-start; gap:8px;
     border-radius:12px; padding:10px 12px; font-size:13px;
     border:1px solid var(--border);
+    text-decoration:none; transition:transform .12s ease, border-color .12s ease;
   }
-  .rec-card.rec-good{ background:rgba(111,191,115,0.1); color:var(--good); border-color:rgba(111,191,115,0.3); font-weight:600; margin-bottom:18px; }
-  .rec-card.rec-warn{ background:rgba(232,163,61,0.1); border-color:rgba(232,163,61,0.3); }
-  .rec-card.rec-danger{ background:rgba(232,96,76,0.1); border-color:rgba(232,96,76,0.3); }
-  .rec-text{ color:var(--text); line-height:1.4; }
+  .rec-card.rec-good{ background:rgba(76,174,125,0.1); color:var(--good); border-color:rgba(76,174,125,0.3); font-weight:600; margin-bottom:18px; }
+  .rec-card.rec-warn{ background:rgba(242,177,52,0.1); border-color:rgba(242,177,52,0.3); cursor:pointer; }
+  .rec-card.rec-danger{ background:rgba(232,93,74,0.1); border-color:rgba(232,93,74,0.3); cursor:pointer; }
+  .rec-card.rec-warn:hover, .rec-card.rec-danger:hover{ transform:translateX(2px); border-color:var(--accent); }
+  .rec-text{ color:var(--text); line-height:1.4; flex:1; }
+  .rec-arrow{ color:var(--accent); font-weight:600; flex-shrink:0; align-self:center; }
 
   /* Besatz-Assistent */
   .fish-row{
@@ -2018,6 +2026,11 @@ function getRecommendations(){
   return recs;
 }
 
+const PARAM_WISSEN_SLUGS = {
+  ph:'ph-wert', temp:'temperatur', nh4:'ammonium', no2:'nitrit', no3:'nitrat',
+  kh:'kh', gh:'gh', o2:'sauerstoff', po4:'phosphat', fe:'eisen', sio2:'silikat', cu:'kupfer', co2:'co2'
+};
+
 function renderRecommendations(){
   const recs = getRecommendations();
   if(recs.length === 0){
@@ -2025,12 +2038,16 @@ function renderRecommendations(){
   }
   return `
     <div class="rec-list">
-      ${recs.map(r => `
-        <div class="rec-card rec-${r.status}">
+      ${recs.map(r => {
+        const slug = PARAM_WISSEN_SLUGS[r.param.key];
+        const href = slug ? `https://www.aquameter.info/wissen/de/${slug}/` : null;
+        return `
+        <a class="rec-card rec-${r.status}"${href ? ` href="${href}" target="_blank" rel="noopener"` : ''}>
           <span class="rec-icon">${r.status === 'danger' ? '🔴' : '🟡'}</span>
           <div class="rec-text"><b>${escapeHtml(getParamLabel(r.param))}</b> (${fmt(r.param, r.value)}${r.param.unit}): ${escapeHtml(r.message)}</div>
-        </div>
-      `).join('')}
+          ${href ? '<span class="rec-arrow">→</span>' : ''}
+        </a>
+      `;}).join('')}
     </div>
   `;
 }
