@@ -218,6 +218,23 @@
   .rec-text{ color:var(--text); line-height:1.4; flex:1; }
   .rec-arrow{ color:var(--accent); font-weight:600; flex-shrink:0; align-self:center; }
 
+  /* KI-Einschätzung */
+  .ai-card{
+    background: var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:14px; margin-bottom:18px; display:flex; flex-direction:column; gap:10px;
+  }
+  .ai-card-intro{ font-size:13px; color:var(--text-muted); line-height:1.4; }
+  .ai-card-text{ font-size:13px; color:var(--text); line-height:1.5; white-space:pre-wrap; }
+  .ai-card-error{ font-size:13px; color:var(--danger); line-height:1.4; }
+  .ai-card-loading{ display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text-muted); }
+  .ai-spinner{
+    width:16px; height:16px; border-radius:50%; flex-shrink:0;
+    border:2px solid var(--border); border-top-color:var(--accent);
+    animation: ai-spin 0.7s linear infinite;
+  }
+  @keyframes ai-spin{ to{ transform:rotate(360deg); } }
+  .ai-card-footer{ display:flex; justify-content:flex-end; }
+
   /* Besatz-Assistent */
   .fish-row{
     background: var(--surface-2); border:1px solid var(--border); border-radius:12px;
@@ -858,7 +875,7 @@ function getFishInfo(f){
 }
 
 let state = { tanks: [], entries: [], events: [], activeTankId: null };
-let ui = { tab:'overview', modal:null, editingEntryId:null, editingEventId:null, editingStockKey:null, tankModalMode:null, selectedParam:'ph' };
+let ui = { tab:'overview', modal:null, editingEntryId:null, editingEventId:null, editingStockKey:null, tankModalMode:null, selectedParam:'ph', aiAnalysis:{} };
 let trendChart = null;
 
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
@@ -925,6 +942,17 @@ const I18N = {
     'Daten importieren':'Import data',
     'Personalisierung':'Personalization',
     '🎯 Zielwerte für dieses Aquarium anpassen':'🎯 Adjust target values for this aquarium',
+    'KI-Einschätzung':'AI insight',
+    'Lass deine letzten Messwerte von einer KI einschätzen – inklusive Zusammenhängen zwischen den Werten.':'Let an AI assess your latest readings, including how the values relate to each other.',
+    'KI-Einschätzung anfordern':'Request AI insight',
+    'Analysiere deine Wasserwerte …':'Analyzing your water values …',
+    'Neu analysieren':'Analyze again',
+    'Erneut versuchen':'Try again',
+    'Bitte melde dich erneut an, um die KI-Einschätzung zu nutzen.':'Please sign in again to use the AI insight.',
+    'Kein Aquarium ausgewählt.':'No aquarium selected.',
+    'Für dieses Becken gibt es noch keine Wasserwerte-Einträge.':'There are no water value entries for this tank yet.',
+    'Die KI-Einschätzung ist gerade nicht verfügbar. Versuch es später erneut.':'The AI insight is not available right now. Please try again later.',
+    'Netzwerkfehler – bitte prüfe deine Internetverbindung und versuch es erneut.':'Network error – please check your internet connection and try again.',
     '🚪 Abmelden':'🚪 Sign out',
     'Neuer Messeintrag':'New measurement',
     'Eintrag bearbeiten':'Edit entry',
@@ -2052,6 +2080,78 @@ function renderRecommendations(){
   `;
 }
 
+const FUNCTIONS_URL = 'https://europe-west1-aqualog-store.cloudfunctions.net';
+
+function aiErrorMessage(code){
+  const messages = {
+    'unauthenticated': t('Bitte melde dich erneut an, um die KI-Einschätzung zu nutzen.'),
+    'invalid-argument': t('Kein Aquarium ausgewählt.'),
+    'not-found': t('Für dieses Becken gibt es noch keine Wasserwerte-Einträge.'),
+  };
+  return messages[code] || t('Die KI-Einschätzung ist gerade nicht verfügbar. Versuch es später erneut.');
+}
+
+async function requestAiAnalysis(){
+  const tank = activeTank();
+  if(!tank) return;
+  ui.aiAnalysis[tank.id] = { ...(ui.aiAnalysis[tank.id]||{}), loading:true, error:null };
+  render();
+  try{
+    const token = await ensureFreshToken();
+    if(!token){
+      ui.aiAnalysis[tank.id] = { loading:false, error: aiErrorMessage('unauthenticated'), text:null };
+      render();
+      return;
+    }
+    const res = await fetch(`${FUNCTIONS_URL}/analyzeWaterParameters`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ data: { tankId: tank.id } })
+    });
+    const json = await res.json();
+    if(!res.ok || json.error){
+      const code = json.error && json.error.status;
+      ui.aiAnalysis[tank.id] = { loading:false, error: aiErrorMessage(code), text:null };
+    } else {
+      const analysis = json.result && json.result.analysis;
+      ui.aiAnalysis[tank.id] = { loading:false, error:null, text: analysis || aiErrorMessage(null) };
+    }
+  }catch(e){
+    console.error('KI-Einschätzung fehlgeschlagen', e);
+    ui.aiAnalysis[tank.id] = { loading:false, error: t('Netzwerkfehler – bitte prüfe deine Internetverbindung und versuch es erneut.'), text:null };
+  }
+  render();
+}
+
+function renderAiCard(){
+  const tank = activeTank();
+  if(!tank) return '';
+  const state = ui.aiAnalysis[tank.id] || {};
+  let body;
+  if(state.loading){
+    body = `<div class="ai-card-loading"><span class="ai-spinner"></span>${t('Analysiere deine Wasserwerte …')}</div>`;
+  } else if(state.error){
+    body = `
+      <div class="ai-card-error">⚠️ ${escapeHtml(state.error)}</div>
+      <div class="ai-card-footer"><button class="btn btn-ghost" onclick="requestAiAnalysis()">${t('Erneut versuchen')}</button></div>
+    `;
+  } else if(state.text){
+    body = `
+      <div class="ai-card-text">${escapeHtml(state.text)}</div>
+      <div class="ai-card-footer"><button class="btn btn-ghost" onclick="requestAiAnalysis()">${t('Neu analysieren')}</button></div>
+    `;
+  } else {
+    body = `
+      <div class="ai-card-intro">${t('Lass deine letzten Messwerte von einer KI einschätzen – inklusive Zusammenhängen zwischen den Werten.')}</div>
+      <div class="ai-card-footer"><button class="btn btn-primary" style="width:auto;padding:8px 16px;" onclick="requestAiAnalysis()">✨ ${t('KI-Einschätzung anfordern')}</button></div>
+    `;
+  }
+  return `
+    <div class="section-label">${t('KI-Einschätzung')}</div>
+    <div class="ai-card">${body}</div>
+  `;
+}
+
 function getCurrentStock(){
   const events = tankEvents().filter(e => e.kind === 'stocking' && e.species);
   const groups = {};
@@ -2163,6 +2263,7 @@ function renderOverview(main){
     ${renderStockSummary()}
     <div class="section-label">${t('Bewertung')}</div>
     ${renderRecommendations()}
+    ${renderAiCard()}
     <div class="section-label">${t('Letzter Eintrag')}: ${formatDate(latest.date)}</div>
     <div class="grid">${cards}</div>
   `;
