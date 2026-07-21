@@ -875,7 +875,7 @@ function getFishInfo(f){
 }
 
 let state = { tanks: [], entries: [], events: [], activeTankId: null };
-let ui = { tab:'overview', modal:null, editingEntryId:null, editingEventId:null, editingStockKey:null, tankModalMode:null, selectedParam:'ph', aiAnalysis:{} };
+let ui = { tab:'overview', modal:null, editingEntryId:null, editingEventId:null, editingStockKey:null, tankModalMode:null, selectedParam:'ph', aiAnalysis:{}, aiQuestion:{} };
 let trendChart = null;
 
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
@@ -953,6 +953,17 @@ const I18N = {
     'Für dieses Becken gibt es noch keine Wasserwerte-Einträge.':'There are no water value entries for this tank yet.',
     'Die KI-Einschätzung ist gerade nicht verfügbar. Versuch es später erneut.':'The AI insight is not available right now. Please try again later.',
     'Netzwerkfehler – bitte prüfe deine Internetverbindung und versuch es erneut.':'Network error – please check your internet connection and try again.',
+    'Frag die KI zu deinem Becken':'Ask the AI about your tank',
+    'Stell eine eigene Frage zu deinem Becken oder deinen Wasserwerten.':'Ask your own question about your tank or your water values.',
+    'z.B. „Warum steigt mein Nitratwert?“':'e.g. "Why is my nitrate rising?"',
+    'Frage stellen':'Ask',
+    'Deine Frage wird beantwortet …':'Answering your question …',
+    'Noch {n} von 5 Fragen heute übrig.':'{n} of 5 questions left today.',
+    'Du kannst bis zu 5 Fragen pro Tag stellen.':'You can ask up to 5 questions per day.',
+    'Bitte melde dich erneut an, um eine Frage zu stellen.':'Please sign in again to ask a question.',
+    'Bitte gib eine Frage ein.':'Please enter a question.',
+    'Du hast dein Tageslimit von 5 Fragen erreicht. Versuch es morgen wieder.':'You have reached your daily limit of 5 questions. Try again tomorrow.',
+    'Deine Frage konnte gerade nicht beantwortet werden. Versuch es später erneut.':'Your question could not be answered right now. Please try again later.',
     '🚪 Abmelden':'🚪 Sign out',
     'Neuer Messeintrag':'New measurement',
     'Eintrag bearbeiten':'Edit entry',
@@ -2149,6 +2160,84 @@ function renderAiCard(){
   return `
     <div class="section-label">${t('KI-Einschätzung')}</div>
     <div class="ai-card">${body}</div>
+    ${renderAiQuestionCard()}
+  `;
+}
+
+/* ---------- Frag die KI (Cloud Function askWaterQuestion, 5x/Tag für Kunden) ---------- */
+function askErrorMessage(code){
+  const messages = {
+    'unauthenticated': t('Bitte melde dich erneut an, um eine Frage zu stellen.'),
+    'invalid-argument': t('Bitte gib eine Frage ein.'),
+    'resource-exhausted': t('Du hast dein Tageslimit von 5 Fragen erreicht. Versuch es morgen wieder.'),
+  };
+  return messages[code] || t('Deine Frage konnte gerade nicht beantwortet werden. Versuch es später erneut.');
+}
+
+async function requestAiQuestion(){
+  const tank = activeTank();
+  if(!tank) return;
+  const input = document.getElementById('ai-question-input');
+  const question = input ? input.value.trim() : '';
+  if(!question) return;
+  ui.aiQuestion[tank.id] = { ...(ui.aiQuestion[tank.id]||{}), loading:true, error:null, question };
+  render();
+  try{
+    const token = await ensureFreshToken();
+    if(!token){
+      ui.aiQuestion[tank.id] = { ...ui.aiQuestion[tank.id], loading:false, error: askErrorMessage('unauthenticated') };
+      render();
+      return;
+    }
+    const res = await fetch(`${FUNCTIONS_URL}/askWaterQuestion`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ data: { tankId: tank.id, question } })
+    });
+    const json = await res.json();
+    if(!res.ok || json.error){
+      const code = json.error && json.error.status;
+      ui.aiQuestion[tank.id] = { ...ui.aiQuestion[tank.id], loading:false, error: askErrorMessage(code), answer:null };
+    } else {
+      const answer = json.result && json.result.answer;
+      const remaining = json.result && json.result.remaining;
+      ui.aiQuestion[tank.id] = { loading:false, error:null, answer: answer || askErrorMessage(null), remaining, question:'' };
+    }
+  }catch(e){
+    console.error('Frage an KI fehlgeschlagen', e);
+    ui.aiQuestion[tank.id] = { ...ui.aiQuestion[tank.id], loading:false, error: t('Netzwerkfehler – bitte prüfe deine Internetverbindung und versuch es erneut.') };
+  }
+  render();
+}
+
+function renderAiQuestionCard(){
+  const tank = activeTank();
+  if(!tank) return '';
+  const state = ui.aiQuestion[tank.id] || {};
+  const remainingText = (typeof state.remaining === 'number')
+    ? t('Noch {n} von 5 Fragen heute übrig.').replace('{n}', state.remaining)
+    : t('Du kannst bis zu 5 Fragen pro Tag stellen.');
+  let resultHtml = '';
+  if(state.loading){
+    resultHtml = `<div class="ai-card-loading"><span class="ai-spinner"></span>${t('Deine Frage wird beantwortet …')}</div>`;
+  } else if(state.error){
+    resultHtml = `<div class="ai-card-error">⚠️ ${escapeHtml(state.error)}</div>`;
+  } else if(state.answer){
+    resultHtml = `<div class="ai-card-text">${escapeHtml(state.answer)}</div>`;
+  }
+  return `
+    <div class="section-label">${t('Frag die KI zu deinem Becken')}</div>
+    <div class="ai-card">
+      <div class="ai-card-intro">${t('Stell eine eigene Frage zu deinem Becken oder deinen Wasserwerten.')}</div>
+      <div class="field" style="margin-bottom:0;">
+        <textarea id="ai-question-input" rows="2" placeholder="${escapeHtml(t('z.B. „Warum steigt mein Nitratwert?“'))}" ${state.loading?'disabled':''}>${escapeHtml(state.question||'')}</textarea>
+      </div>
+      <div class="ai-card-footer" style="justify-content:space-between; align-items:center;">
+        <span style="font-size:12px; color:var(--text-muted);">${remainingText}</span>
+        <button class="btn btn-primary" style="width:auto;padding:8px 16px;" onclick="requestAiQuestion()" ${state.loading?'disabled':''}>➤ ${t('Frage stellen')}</button>
+      </div>
+      ${resultHtml}
+    </div>
   `;
 }
 
