@@ -990,6 +990,11 @@ const I18N = {
     'Beobachtung':'Observation',
     'Fischart / Bezeichnung':'Species / name',
     'Anzahl (optional)':'Count (optional)',
+    'davon Männchen (optional)':'of which male (optional)',
+    'davon Weibchen (optional)':'of which female (optional)',
+    'davon Männchen':'of which male',
+    'davon Weibchen':'of which female',
+    'Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.':'If known: split the count by sex – e.g. for a male/female pair of cichlids. Animals not split are counted as sex unknown.',
     'Preis pro Tier (€, optional)':'Price per animal (€, optional)',
     'Wartung & Besatz':'Maintenance & stock',
     'Noch keine Wartungs- oder Besatz-Einträge.':'No maintenance or stock entries yet.',
@@ -1146,6 +1151,11 @@ const I18N = {
     'Beobachtung':'Observación',
     'Fischart / Bezeichnung':'Especie / nombre',
     'Anzahl (optional)':'Cantidad (opcional)',
+    'davon Männchen (optional)':'de los cuales machos (opcional)',
+    'davon Weibchen (optional)':'de los cuales hembras (opcional)',
+    'davon Männchen':'de los cuales machos',
+    'davon Weibchen':'de los cuales hembras',
+    'Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.':'Si se conoce: divide la cantidad por sexo – p. ej. para una pareja macho/hembra de cíclidos. Los animales no divididos se cuentan como sexo desconocido.',
     'Preis pro Tier (€, optional)':'Precio por animal (€, opcional)',
     'Wartung & Besatz':'Mantenimiento y poblamiento',
     'Noch keine Wartungs- oder Besatz-Einträge.':'Todavía no hay registros de mantenimiento o poblamiento.',
@@ -1295,6 +1305,11 @@ const I18N = {
     'Beobachtung':'Observação',
     'Fischart / Bezeichnung':'Espécie / nome',
     'Anzahl (optional)':'Quantidade (opcional)',
+    'davon Männchen (optional)':'dos quais machos (opcional)',
+    'davon Weibchen (optional)':'dos quais fêmeas (opcional)',
+    'davon Männchen':'dos quais machos',
+    'davon Weibchen':'dos quais fêmeas',
+    'Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.':'Se souber: divida a quantidade por sexo – por ex. para um casal macho/fêmea de ciclídeos. Animais não divididos contam como sexo desconhecido.',
     'Preis pro Tier (€, optional)':'Preço por animal (€, opcional)',
     'Wartung & Besatz':'Manutenção e povoamento',
     'Noch keine Wartungs- oder Besatz-Einträge.':'Ainda não há registros de manutenção ou povoamento.',
@@ -1444,6 +1459,11 @@ const I18N = {
     'Beobachtung':'Obserwacja',
     'Fischart / Bezeichnung':'Gatunek / nazwa',
     'Anzahl (optional)':'Liczba (opcjonalnie)',
+    'davon Männchen (optional)':'w tym samce (opcjonalnie)',
+    'davon Weibchen (optional)':'w tym samice (opcjonalnie)',
+    'davon Männchen':'w tym samce',
+    'davon Weibchen':'w tym samice',
+    'Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.':'Jeśli wiadomo: podziel liczbę według płci – np. dla pary samiec/samica u pielęgnic. Niepodzielone zwierzęta liczone są jako płeć nieznana.',
     'Preis pro Tier (€, optional)':'Cena za sztukę (€, opcjonalnie)',
     'Wartung & Besatz':'Konserwacja i obsada',
     'Noch keine Wartungs- oder Besatz-Einträge.':'Brak jeszcze wpisów konserwacji lub obsady.',
@@ -1593,6 +1613,11 @@ const I18N = {
     'Beobachtung':'Наблюдение',
     'Fischart / Bezeichnung':'Вид / название',
     'Anzahl (optional)':'Количество (необязательно)',
+    'davon Männchen (optional)':'из них самцы (необязательно)',
+    'davon Weibchen (optional)':'из них самки (необязательно)',
+    'davon Männchen':'из них самцы',
+    'davon Weibchen':'из них самки',
+    'Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.':'Если известно: разделите количество по полу – например, для пары самец/самка у цихлид. Неразделённые особи считаются с неизвестным полом.',
     'Preis pro Tier (€, optional)':'Цена за особь (€, необязательно)',
     'Wartung & Besatz':'Обслуживание и обитатели',
     'Noch keine Wartungs- oder Besatz-Einträge.':'Пока нет записей об обслуживании или обитателях.',
@@ -2246,12 +2271,24 @@ function getCurrentStock(){
   const groups = {};
   events.forEach(e => {
     const key = e.species.trim().toLowerCase();
-    if(!groups[key]) groups[key] = { species: e.species.trim(), count: 0 };
+    if(!groups[key]) groups[key] = { species: e.species.trim(), count: 0, countMale: 0, countFemale: 0 };
     const amount = e.count != null ? e.count : 1;
-    if(e.stockingType === 'einsatz') groups[key].count += amount;
-    else if(e.stockingType === 'verlust') groups[key].count -= amount;
+    const male = e.countMale || 0;
+    const female = e.countFemale || 0;
+    if(e.stockingType === 'einsatz'){
+      groups[key].count += amount;
+      groups[key].countMale += male;
+      groups[key].countFemale += female;
+    } else if(e.stockingType === 'verlust'){
+      groups[key].count -= amount;
+      groups[key].countMale -= male;
+      groups[key].countFemale -= female;
+    }
   });
-  return Object.values(groups).filter(g => g.count > 0).sort((a,b) => b.count - a.count);
+  return Object.values(groups)
+    .filter(g => g.count > 0)
+    .map(g => ({ ...g, countMale: Math.max(0, g.countMale), countFemale: Math.max(0, g.countFemale) }))
+    .sort((a,b) => b.count - a.count);
 }
 
 function getGroupPrice(speciesKey){
@@ -2274,6 +2311,18 @@ function formatEuro(value){
   return value.toLocaleString(dateLocale(), { minimumFractionDigits:2, maximumFractionDigits:2 }) + ' €';
 }
 
+// Zeigt ♂/♀-Aufschlüsselung eines Besatz-Eintrags an, falls beim Eintragen ein
+// Geschlecht angegeben wurde. Tiere ohne Geschlechtsangabe werden als "?n" angehängt.
+function renderSexBadge(s){
+  if(!s || (!s.countMale && !s.countFemale)) return '';
+  const parts = [];
+  if(s.countMale) parts.push(`♂${s.countMale}`);
+  if(s.countFemale) parts.push(`♀${s.countFemale}`);
+  const rest = s.count - (s.countMale||0) - (s.countFemale||0);
+  if(rest > 0) parts.push(`?${rest}`);
+  return ` <span class="stock-sex" style="opacity:.65;font-weight:400;">(${parts.join(' · ')})</span>`;
+}
+
 function renderStockSummary(){
   const stock = getCurrentStock();
   const totalCost = getStockingTotalCost();
@@ -2285,7 +2334,7 @@ function renderStockSummary(){
     <div class="stock-card">
       <div class="stock-total">${total} ${LANG==='de' ? ('Tier'+(total===1?'':'e')) : t('Tier')} · ${stock.length} ${LANG==='de' ? ('Art'+(stock.length===1?'':'en')) : t('Arten')}${totalCost > 0 ? ` · ${formatEuro(totalCost)} ${t('investiert')}` : ''}</div>
       <div class="stock-list">
-        ${stock.map((s,i) => `<span class="stock-chip" onclick="openEditStockModal(${i})">🐟 ${escapeHtml(s.species)} <b>×${s.count}</b></span>`).join('')}
+        ${stock.map((s,i) => `<span class="stock-chip" onclick="openEditStockModal(${i})">🐟 ${escapeHtml(s.species)} <b>×${s.count}</b>${renderSexBadge(s)}</span>`).join('')}
       </div>
     </div>
   `;
@@ -2643,9 +2692,15 @@ async function saveStockEdit(){
   const oldKey = ui.editingStockKey;
   const newName = document.getElementById('es-species').value.trim();
   const newCount = Number(document.getElementById('es-count').value);
+  const maleRaw = document.getElementById('es-count-male').value;
+  const femaleRaw = document.getElementById('es-count-female').value;
+  const newMale = maleRaw === '' ? 0 : Number(maleRaw);
+  const newFemale = femaleRaw === '' ? 0 : Number(femaleRaw);
   const priceRaw = document.getElementById('es-price').value;
   if(!newName){ alert('Bitte einen Namen eingeben.'); return; }
   if(isNaN(newCount) || newCount < 0){ alert('Bitte eine gültige Anzahl (0 oder mehr) eingeben.'); return; }
+  if(isNaN(newMale) || newMale < 0 || isNaN(newFemale) || newFemale < 0){ alert('Bitte eine gültige Anzahl (0 oder mehr) für Männchen/Weibchen eingeben.'); return; }
+  if(newMale + newFemale > newCount){ alert('Männchen + Weibchen dürfen die Gesamtanzahl nicht übersteigen.'); return; }
 
   const newKey = newName.toLowerCase();
   if(newKey !== oldKey){
@@ -2667,16 +2722,28 @@ async function saveStockEdit(){
 
   const recomputed = getCurrentStock().find(g => g.species.trim().toLowerCase() === newKey);
   const currentTotal = recomputed ? recomputed.count : 0;
+  const currentMale = recomputed ? recomputed.countMale : 0;
+  const currentFemale = recomputed ? recomputed.countFemale : 0;
   const delta = newCount - currentTotal;
-  if(delta !== 0){
+  const deltaMale = newMale - currentMale;
+  const deltaFemale = newFemale - currentFemale;
+  if(delta !== 0 || deltaMale !== 0 || deltaFemale !== 0){
+    // Geschlechter-Teildeltas werden auf dieselbe Richtung wie das Gesamtdelta
+    // geklemmt (Math.max(0, ...)), damit sie zum gewählten Einsatz/Verlust-Typ
+    // passen. Ein gegenläufiger Teildelta-Ausreißer (z.B. Gesamt +1, aber
+    // Männchen-Anzahl sinkt) wird dabei bewusst nicht separat abgebildet - das ist
+    // eine seltene Randkonstellation bei dieser manuellen Korrektur-Funktion.
+    const type = delta >= 0 ? 'einsatz' : 'verlust';
     state.events.push({
       id: uid(),
       tankId: state.activeTankId,
       kind: 'stocking',
       date: new Date().toISOString().slice(0,10),
-      stockingType: delta > 0 ? 'einsatz' : 'verlust',
+      stockingType: type,
       species: newName,
       count: Math.abs(delta),
+      countMale: type === 'einsatz' ? Math.max(0, deltaMale) : Math.max(0, -deltaMale),
+      countFemale: type === 'einsatz' ? Math.max(0, deltaFemale) : Math.max(0, -deltaFemale),
       pricePerUnit: delta > 0 && priceRaw !== '' ? Number(priceRaw) : null,
       note: 'Manuelle Korrektur (Gruppe bearbeitet)'
     });
@@ -2857,6 +2924,19 @@ function renderModal(){
           <label>${t('Anzahl (optional)')}</label>
           <input type="number" step="1" id="f-count" value="${editing && editing.count != null ? editing.count : ''}" placeholder="–">
         </div>
+        <div class="field-row">
+          <div class="field">
+            <label>${t('davon Männchen (optional)')}</label>
+            <input type="number" step="1" min="0" id="f-count-male" value="${editing && editing.countMale != null ? editing.countMale : ''}" placeholder="–">
+          </div>
+          <div class="field">
+            <label>${t('davon Weibchen (optional)')}</label>
+            <input type="number" step="1" min="0" id="f-count-female" value="${editing && editing.countFemale != null ? editing.countFemale : ''}" placeholder="–">
+          </div>
+        </div>
+        <div class="empty-hint" style="margin-top:-8px;margin-bottom:14px;">
+          ${t('Falls bekannt: Anzahl nach Geschlecht aufteilen – z.B. für ein Männchen-Weibchen-Paar bei Buntbarschen. Nicht aufgeteilte Tiere gelten als Geschlecht unbekannt.')}
+        </div>
         <div class="field">
           <label>${t('Preis pro Tier (€, optional)')}</label>
           <input type="number" step="0.01" id="f-price" value="${editing && editing.pricePerUnit != null ? editing.pricePerUnit : ''}" placeholder="z.B. 2.50">
@@ -2915,7 +2995,7 @@ function renderModal(){
             <div class="fish-row">
               <div class="fish-row-top">
                 <span class="fish-name">${escapeHtml(s.species)} ${s.match ? '' : `<span class="empty-hint">${t('(nicht in Datenbank)')}</span>`}</span>
-                <span class="fish-meta">${s.count} ${LANG==='de' ? ('Tier'+(s.count===1?'':'e')) : t('Tier')}</span>
+                <span class="fish-meta">${s.count} ${LANG==='de' ? ('Tier'+(s.count===1?'':'e')) : t('Tier')}${renderSexBadge(s)}</span>
               </div>
               ${s.issues.map(i => `<div class="fish-issue warn">⚠️ ${escapeHtml(i)}</div>`).join('')}
               ${s.match && s.issues.length===0 ? `<div class="fish-issue good">✓ ${t('Sieht laut Datenbank passend aus.')}</div>` : ''}
@@ -2974,6 +3054,8 @@ function renderModal(){
     const group = stock.find(g => g.species.trim().toLowerCase() === ui.editingStockKey);
     const currentName = group ? group.species : '';
     const currentCount = group ? group.count : 0;
+    const currentMale = group ? group.countMale : 0;
+    const currentFemale = group ? group.countFemale : 0;
     const groupPrice = getGroupPrice(ui.editingStockKey);
     overlay.innerHTML = `
       <div class="sheet">
@@ -2986,6 +3068,16 @@ function renderModal(){
         <div class="field">
           <label>${t('Aktuelle Anzahl')}</label>
           <input type="number" step="1" min="0" id="es-count" value="${currentCount}">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>${t('davon Männchen')}</label>
+            <input type="number" step="1" min="0" id="es-count-male" value="${currentMale || ''}">
+          </div>
+          <div class="field">
+            <label>${t('davon Weibchen')}</label>
+            <input type="number" step="1" min="0" id="es-count-female" value="${currentFemale || ''}">
+          </div>
         </div>
         <div class="field">
           <label>${t('Preis pro Tier (€, optional)')}</label>
@@ -3092,8 +3184,10 @@ function getStockedGroups(){
   const groups = {};
   events.forEach(e => {
     const key = e.species.trim().toLowerCase();
-    if(!groups[key]) groups[key] = { species: e.species.trim(), count: 0 };
+    if(!groups[key]) groups[key] = { species: e.species.trim(), count: 0, countMale: 0, countFemale: 0 };
     groups[key].count += (e.count != null ? e.count : 1);
+    groups[key].countMale += (e.countMale || 0);
+    groups[key].countFemale += (e.countFemale || 0);
   });
   return Object.values(groups);
 }
@@ -3167,16 +3261,33 @@ async function saveStocking(){
   if(isSavingStocking) return;
   const date = document.getElementById('f-date').value;
   if(!date){ alert('Bitte ein Datum wählen.'); return; }
+  const countRaw = document.getElementById('f-count').value;
+  const maleRaw = document.getElementById('f-count-male').value;
+  const femaleRaw = document.getElementById('f-count-female').value;
+  const priceRaw = document.getElementById('f-price').value;
+  let count = countRaw === '' ? null : Number(countRaw);
+  const countMale = maleRaw === '' ? null : Number(maleRaw);
+  const countFemale = femaleRaw === '' ? null : Number(femaleRaw);
+  if((countMale != null && (isNaN(countMale) || countMale < 0)) || (countFemale != null && (isNaN(countFemale) || countFemale < 0))){
+    alert('Bitte eine gültige Anzahl (0 oder mehr) für Männchen/Weibchen eingeben.');
+    return;
+  }
+  if(count == null && (countMale != null || countFemale != null)){
+    count = (countMale || 0) + (countFemale || 0);
+  } else if(count != null && ((countMale || 0) + (countFemale || 0) > count)){
+    alert('Männchen + Weibchen dürfen die Gesamtanzahl nicht übersteigen.');
+    return;
+  }
   isSavingStocking = true;
   const editing = !!ui.editingEventId;
-  const countRaw = document.getElementById('f-count').value;
-  const priceRaw = document.getElementById('f-price').value;
   const data = {
     kind: 'stocking',
     date,
     stockingType: document.getElementById('f-stocking-type').value,
     species: document.getElementById('f-species').value.trim(),
-    count: countRaw === '' ? null : Number(countRaw),
+    count,
+    countMale,
+    countFemale,
     pricePerUnit: priceRaw === '' ? null : Number(priceRaw),
     note: document.getElementById('f-note').value.trim()
   };
