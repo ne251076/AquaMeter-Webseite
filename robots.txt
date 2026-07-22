@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.aquameter.info/sitemap.xml
+Sitemap: https://aquameter.info/sitemap.xml

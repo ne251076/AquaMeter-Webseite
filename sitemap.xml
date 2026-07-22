@@ -1,246 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.aquameter.info/</loc>
+    <loc>https://aquameter.info/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/</loc>
+    <loc>https://aquameter.info/wissen/de/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/ph-wert/</loc>
+    <loc>https://aquameter.info/wissen/de/ph-wert/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/temperatur/</loc>
+    <loc>https://aquameter.info/wissen/de/temperatur/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/ammonium/</loc>
+    <loc>https://aquameter.info/wissen/de/ammonium/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/nitrit/</loc>
+    <loc>https://aquameter.info/wissen/de/nitrit/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/nitrat/</loc>
+    <loc>https://aquameter.info/wissen/de/nitrat/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/kh/</loc>
+    <loc>https://aquameter.info/wissen/de/kh/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/gh/</loc>
+    <loc>https://aquameter.info/wissen/de/gh/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/sauerstoff/</loc>
+    <loc>https://aquameter.info/wissen/de/sauerstoff/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/phosphat/</loc>
+    <loc>https://aquameter.info/wissen/de/phosphat/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/eisen/</loc>
+    <loc>https://aquameter.info/wissen/de/eisen/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/silikat/</loc>
+    <loc>https://aquameter.info/wissen/de/silikat/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/kupfer/</loc>
+    <loc>https://aquameter.info/wissen/de/kupfer/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/co2/</loc>
+    <loc>https://aquameter.info/wissen/de/co2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/berater/</loc>
+    <loc>https://aquameter.info/wissen/de/berater/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/en/</loc>
+    <loc>https://aquameter.info/en/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/</loc>
+    <loc>https://aquameter.info/wissen/en/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/ph-value/</loc>
+    <loc>https://aquameter.info/wissen/en/ph-value/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/temperature/</loc>
+    <loc>https://aquameter.info/wissen/en/temperature/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/ammonia/</loc>
+    <loc>https://aquameter.info/wissen/en/ammonia/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/nitrite/</loc>
+    <loc>https://aquameter.info/wissen/en/nitrite/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/nitrate/</loc>
+    <loc>https://aquameter.info/wissen/en/nitrate/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/kh/</loc>
+    <loc>https://aquameter.info/wissen/en/kh/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/gh/</loc>
+    <loc>https://aquameter.info/wissen/en/gh/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/oxygen/</loc>
+    <loc>https://aquameter.info/wissen/en/oxygen/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/phosphate/</loc>
+    <loc>https://aquameter.info/wissen/en/phosphate/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/iron/</loc>
+    <loc>https://aquameter.info/wissen/en/iron/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/silicate/</loc>
+    <loc>https://aquameter.info/wissen/en/silicate/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/copper/</loc>
+    <loc>https://aquameter.info/wissen/en/copper/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/co2/</loc>
+    <loc>https://aquameter.info/wissen/en/co2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/advisor/</loc>
+    <loc>https://aquameter.info/wissen/en/advisor/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/datenschutz.html</loc>
+    <loc>https://aquameter.info/datenschutz.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/volumenrechner/</loc>
+    <loc>https://aquameter.info/wissen/de/volumenrechner/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/volume-calculator/</loc>
+    <loc>https://aquameter.info/wissen/en/volume-calculator/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/testkit-vergleich/</loc>
+    <loc>https://aquameter.info/wissen/de/testkit-vergleich/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/test-kit-comparison/</loc>
+    <loc>https://aquameter.info/wissen/en/test-kit-comparison/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/de/aquarium-einrichten/</loc>
+    <loc>https://aquameter.info/wissen/de/aquarium-einrichten/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.aquameter.info/wissen/en/setting-up-an-aquarium/</loc>
+    <loc>https://aquameter.info/wissen/en/setting-up-an-aquarium/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  <url><loc>https://www.aquameter.info/wissen/de/wasserwechsel-rechner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/water-change-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/besatzrechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/stocking-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/duengerechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fertilizer-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/einfahr-checkliste/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/cycling-checklist/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/lexikon/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/glossary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/wasserhaerte-finden/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/find-your-water-hardness/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/filter-reinigen/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/cleaning-a-filter/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/nitritpeak/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/nitrite-spike/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/neonsalmler/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/neon-tetra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/skalar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/angelfish/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/antennenwels/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/bristlenose-pleco/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/zwergbuntbarsch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/dwarf-cichlid/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/fische/kampffisch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/fish/betta/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/plants/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/plants/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/javafarn/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/plants/java-fern/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/plants/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/pflanzen/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/plants/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/diseases/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/weisspuenktchenkrankheit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/diseases/ich/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/flossenfaeule/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/diseases/fin-rot/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/de/krankheiten/bauchwassersucht/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.aquameter.info/wissen/en/diseases/dropsy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/wasserwechsel-rechner/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/water-change-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/besatzrechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/stocking-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/duengerechner/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fertilizer-calculator/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/einfahr-checkliste/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/cycling-checklist/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/lexikon/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/glossary/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/wasserhaerte-finden/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/find-your-water-hardness/</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/filter-reinigen/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/cleaning-a-filter/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/nitritpeak/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/nitrite-spike/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/guppy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/neonsalmler/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/neon-tetra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/skalar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/angelfish/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/antennenwels/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/bristlenose-pleco/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/zwergbuntbarsch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/dwarf-cichlid/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/fische/kampffisch/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/fish/betta/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/pflanzen/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/plants/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/pflanzen/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/plants/anubias/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/pflanzen/javafarn/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/plants/java-fern/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/pflanzen/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/plants/vallisneria/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/pflanzen/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/plants/bucephalandra/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/krankheiten/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/diseases/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/krankheiten/weisspuenktchenkrankheit/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/diseases/ich/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/krankheiten/flossenfaeule/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/diseases/fin-rot/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/de/krankheiten/bauchwassersucht/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aquameter.info/wissen/en/diseases/dropsy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
